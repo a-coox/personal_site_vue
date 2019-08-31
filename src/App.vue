@@ -20,10 +20,8 @@ import ExperienceSection from './components/ExperienceSection.vue';
 import ContactSection from './components/ContactSection.vue';
 import InterSectionObserver from './services/InterSectionObserver';
 
-const VIEW_THRESHOLDS = {
-  min: 0.2,
-  max: 0.9
-};
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 export default {
   name: 'app',
@@ -72,7 +70,7 @@ export default {
     // Another trigger to change section of the page highlighted
     const sectionObserver = new InterSectionObserver(this.sectionScrollBack, { threshold: [0.2, 0.9] });
     // const pages = ['home', 'about', 'skills', 'project', 'experience', 'contact'];
-    const pages = ['home', 'about']
+    const pages = ['home', 'about'];
     pages.forEach(page => {
       sectionObserver.observe(this.$refs[page].$el);
     });

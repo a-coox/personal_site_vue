@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" :class="{ pageScroll: isScrolled }">
+  <nav class="navbar" @click="onClick($event)" :class="{ pageScroll: isScrolled }">
     <Logo :class="{ pageScroll: isScrolled }"/>
     <a href="#home" :class="{ active: (active === 'home') }">Home</a>
     <a href="#about" id="navAbout" :class="{ active: (active === 'about') }">About Me</a>
@@ -12,6 +12,7 @@
 
 <script>
 import Logo from './Logo.vue';
+import {smoothScroll} from '../services/SmoothScroll';
 
 export default {
   name: 'Navbar',
@@ -30,6 +31,10 @@ export default {
       default: 'home'
     }
   },
+
+  methods: {
+    onClick: smoothScroll
+  }
 }
 </script>
 
@@ -46,7 +51,7 @@ export default {
   z-index: 100;
   transition: all 0.3s ease-in-out;
 
-  a {
+  & > a:not(.logo) {
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'Nunito Sans', Georgia, sans-serif;
@@ -55,7 +60,7 @@ export default {
     text-align: center;
     font-size: 15px;
     margin: 0.1em;
-    padding: 1.1em 0.9em;
+    padding: 1em 0.9em;
 
     &:hover:not(.active) {
       color: white;

@@ -12,6 +12,7 @@
     "core-js": "^2.6.5",
     "intersection-observer": "^0.7.0",
     "register-service-worker": "^1.6.2",
+    "smoothscroll-polyfill": "^0.4.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {

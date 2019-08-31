@@ -6,7 +6,7 @@
         <h1 id="name" class="simpleTyper" data-typer-text="Hi, I'm Aaron Coox"></h1>
         <h2 id="description">Computer & Electrical/Information Technology student. Welcome to my resume.</h2>
       </div>
-      <a id="enterBtn" href="#about">Explore Site</a>
+      <a id="enterBtn" href="#about" @click="onClick($event)">Explore Site</a>
     </div>
     <div id="overlay"></div>
   </Section>
@@ -14,11 +14,15 @@
 
 <script>
 import Section from './Section';
+import {smoothScroll} from '../services/SmoothScroll';
 
 export default {
   name: 'LandingSection',
   components: {
     Section
+  },
+  methods: {
+    onClick: smoothScroll
   }
 }
 </script>
