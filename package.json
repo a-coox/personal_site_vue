@@ -29,6 +29,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "flow-bin": "^0.106.3",
     "node-sass": "^4.9.0",
+    "prettier-eslint": "^9.0.0",
+    "prettier-stylelint": "^0.4.2",
     "sass-loader": "^7.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",

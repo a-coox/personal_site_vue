@@ -1,3 +1,3 @@
 <template>
-  <div class="experienceSection"></div>
+  <Section id="experience" :header="'Education & Work'"></Section>
 </template>

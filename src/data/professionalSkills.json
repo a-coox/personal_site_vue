@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Javascript & jQuery",
+    "level": 5,
+    "description": "Experience with ES2015 to ES2017 features, e.g. async/await, promises. Understanding of event loop/job queue/stack, Google V8 engine optimisation. Experience writing custom jQuery libraries & plug-ins."
+  },
+  {
+    "name": "Vue.js",
+    "level": 4,
+    "description": "Applied extensively at GBST to create complex front-end applications, as well as personal projects."
+  },
+  {
+    "name": "Unix C & Embedded C",
+    "level": 6,
+    "description": "I work at UQ teaching C programming. I have Applied knowledge of Assembly, microcontroller and Linux C programming,  multi-threading, high-performance servers, multi-process, etc."
+  },
+  {
+    "name": "D3.js",
+    "level": 3,
+    "description": "I have created graphs for professional financial web-apps. I can build dynamic, performant graphs to match specific designs."
+  },
+  {
+    "name": "Node.js",
+    "level": 2,
+    "description": "I have understanding of using NodeJS with a JSON database (MongoDB), and communicating with front-end web-apps with ExpressJS and HTTP requests."
+  },
+  {
+    "name": "Algorithms & Data Structures",
+    "level": 4,
+    "description": "I have read 'Introduction to Algorithms (CLRS)' and applied those concepts to projects and work. With academic approval, I skipped the relevant UQ course to take more advanced alternatives."
+  }
+]

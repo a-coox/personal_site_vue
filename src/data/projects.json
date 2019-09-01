@@ -1,0 +1,45 @@
+[
+  {
+    "name": "SpotiSearch",
+    "img": "./img/projects/spotisearch.png",
+    "imgAlt": "Spotisearch",
+    "tags": [
+      "Serverless",
+      "Vue.js",
+      "OAuth 2.0"
+    ],
+    "description": "I individually designed, created, and published a website which provides powerful filtering and playlist automation functionality for Spotify users. Made using Vue.JS, the public Spotify API, and OAuth 2.0 authentication. It was designed as a demonstration of my front-end abilities."
+  },
+  {
+    "name": "RemindMe IOT Assistant",
+    "img": "./img/projects/cube.jpg",
+    "imgAlt": "Glowing cube with button",
+    "tags": [
+      "AWS Lambda",
+      "Embedded C",
+      "Alexa"
+    ],
+    "description": "I designed the RemindMe cube prototype to assist dementia patients with their daily routine by providing a compact cloud-enabled cube. The cube can be set to softly pulse and play music at certain times of day, or based on smart-home triggers (such as a positional sensor) to remind the patient of their goal. I implemented it with an IOT-enabled microcontroller and full Alexa integration through Amazon AWS."
+  },
+  {
+    "name": "ColoChat Chatbot",
+    "img": "./img/projects/colo.png",
+    "imgAlt": "ColoChat website",
+    "tags": [
+      "Natural Language Processing",
+      "Serverless",
+      "Vue.js"
+    ],
+    "description": "Colochat is an interactive web-app which inspires an interest in Aboriginal languages. Children are able to talk to Colo and ask for translations, quizzes, etc. I used Google's DialogFlow API for advanced natural language processing as well as Firebase Functions for the server. The front-end was done in Vue."
+  },
+  {
+    "name": "UQ GIT EdX Course",
+    "img": "./img/projects/edx.PNG",
+    "imgAlt": "edX Course website",
+    "tags": [
+      "Version Control",
+      "GIT"
+    ],
+    "description": "I wrote a large section of UQ’s official GIT version control online course. This online course will be used to teach GIT to every engineering and IT student at UQ from next semester onwards. My task included writing explanations on command-line functionality & core concepts and creating tutorial videos."
+  }
+]

@@ -1,21 +1,21 @@
 <template>
   <nav class="navbar" @click="onClick($event)" :class="{ pageScroll: isScrolled }">
-    <Logo :class="{ pageScroll: isScrolled }"/>
+    <Logo :class="{ pageScroll: isScrolled }" />
     <a href="#home" :class="{ active: (active === 'home') }">Home</a>
     <a href="#about" id="navAbout" :class="{ active: (active === 'about') }">About Me</a>
     <a href="#skills" id="navSkills" :class="{ active: (active === 'skills') }">Skills & Experience</a>
-    <a href="#projects" ref="projects" :class="{ active: (active === 'projects') }">Projects</a>
+    <a href="#project" ref="project" :class="{ active: (active === 'project') }">Projects</a>
     <a href="#education" ref="education" :class="{ active: (active === 'education') }">Education</a>
     <a href="#contact" ref="contact" :class="{ active: (active === 'contact') }">Contact</a>
   </nav>
 </template>
 
 <script>
-import Logo from './Logo.vue';
-import {smoothScroll} from '../services/SmoothScroll';
+import Logo from "./Logo.vue";
+import { smoothScroll } from "../services/SmoothScroll";
 
 export default {
-  name: 'Navbar',
+  name: "Navbar",
 
   components: {
     Logo
@@ -28,14 +28,14 @@ export default {
     },
     active: {
       type: String,
-      default: 'home'
+      default: "home"
     }
   },
 
   methods: {
     onClick: smoothScroll
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -54,7 +54,7 @@ export default {
   & > a:not(.logo) {
     text-transform: uppercase;
     text-decoration: none;
-    font-family: 'Nunito Sans', Georgia, sans-serif;
+    font-family: "Nunito Sans", Georgia, sans-serif;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;

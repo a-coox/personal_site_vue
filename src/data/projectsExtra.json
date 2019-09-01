@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Smart Bus App",
+    "img": "./img/projects/busuber.png",
+    "imgAlt": "Busuber app screenshot",
+    "tags": [
+      "Android",
+      "SQLite",
+      "Java"
+    ],
+    "description": "During a one-month intensive entrepreneurship program in China, my team and I created an app. It is marketed at schools, providing route planning and pickup scheduling abilities. It uses clustering/path-finding algorithms to plan optimal bus routes. Parents are able to use the app to select pickup dates, which automatically modifies the route."
+  },
+  {
+    "name": "Choose Your Own Adventure",
+    "img": "./img/projects/CYOA.jpg",
+    "imgAlt": "Choose Your Own adventure project",
+    "tags": [
+      "JS & JQuery",
+      "UX Design"
+    ],
+    "description": "Using only vanilla javascript and jQuery, I made an interactive web-based version of the classic Choose Your Own Adventure novel 'Underground Kingdom'. Features include additional animations and imagery as well as a branching path-based system that allow endless exploration."
+  }
+]
