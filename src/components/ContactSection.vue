@@ -27,7 +27,7 @@ export default {
         {
           text: "Linkedin",
           logo: LinkedinLogo,
-          link: "www.linkedin.com/in/aaron-coox/"
+          link: "https://www.linkedin.com/in/aaron-coox/"
         },
         {
           text: "Email",
@@ -37,12 +37,12 @@ export default {
         {
           text: "GitHub",
           logo: GithubLogo,
-          link: "github.com/Belgiumese/"
+          link: "https://github.com/Belgiumese/"
         },
         {
           text: "Medium",
           logo: MediumLogo,
-          link: "medium.com/@thebelgiumesekid"
+          link: "https://medium.com/@thebelgiumesekid"
         }
       ]
     };

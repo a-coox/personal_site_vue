@@ -21,9 +21,6 @@ export default {
         };
       }
     }
-  },
-  mounted() {
-    console.log(this.skill);
   }
 };
 </script>

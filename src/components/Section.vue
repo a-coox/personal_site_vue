@@ -37,7 +37,7 @@ export default {
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-height: 98vh;
+  min-height: 100vh;
   background-color: #feffff;
 
   p {
