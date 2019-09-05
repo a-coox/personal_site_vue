@@ -34,7 +34,7 @@ export default {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   align-content: center;
   min-height: 98vh;

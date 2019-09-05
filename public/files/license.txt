@@ -1,0 +1,3 @@
+Some icons on this site are sourced from FontAwesome (fontawesome.com).
+They may have been modified in colour/size.
+License (Creative Commons): https://fontawesome.com/license

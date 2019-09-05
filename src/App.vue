@@ -5,7 +5,7 @@
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
     <ProjectsSection ref="project" />
-    <ExperienceSection ref="experience" />
+    <EducationSection ref="education" />
     <ContactSection ref="contact" />
   </div>
 </template>
@@ -16,7 +16,7 @@ import LandingSection from "./components/LandingSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import SkillsSection from "./components/SkillsSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
-import ExperienceSection from "./components/ExperienceSection.vue";
+import EducationSection from "./components/EducationSection.vue";
 import ContactSection from "./components/ContactSection.vue";
 import InterSectionObserver from "./services/InterSectionObserver";
 
@@ -31,7 +31,7 @@ export default {
     AboutSection,
     SkillsSection,
     ProjectsSection,
-    ExperienceSection,
+    EducationSection,
     ContactSection
   },
 
@@ -39,7 +39,7 @@ export default {
     return {
       isScrolled: false,
       active: 0,
-      pages: ["home", "about", "skills", "project"]
+      pages: ["home", "about", "skills", "project", "education", "contact"]
     };
   },
 
@@ -82,9 +82,7 @@ export default {
     const sectionObserver = new InterSectionObserver(this.sectionScrollBack, {
       threshold: 0.2
     });
-    // const pages = ['home', 'about', 'skills', 'project', 'experience', 'contact'];
-    const pages = ["home", "about", "skills", "project"];
-    pages.forEach(page => {
+    this.pages.forEach(page => {
       sectionObserver.observe(this.$refs[page].$el);
     });
   }
