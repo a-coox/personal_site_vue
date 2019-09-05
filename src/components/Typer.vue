@@ -80,9 +80,9 @@ export default {
 .typer {
   p {
     color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
     box-sizing: content-box;
-    font-family: "Oleo Script", cursive;
+    font-family: "Oleo Script", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: calc(3.2em + 2.1vw);

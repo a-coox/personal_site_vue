@@ -49,7 +49,7 @@ export default {
     position: relative;
     font-size: 2.5em;
     margin-bottom: 1.6em;
-    font-family: "Oleo Script", cursive;
+    font-family: "Oleo Script", sans-serif;
 
     &::after,
     &::before {
