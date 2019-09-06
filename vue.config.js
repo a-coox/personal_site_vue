@@ -1,21 +1,23 @@
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
   configureWebpack: {
-    devtool: 'source-map',
+    devtool: "source-map",
 
     plugins: [
       new StylelintPlugin({
-        files: ['**/*.vue']
+        files: ["**/*.vue"]
       })
     ]
   },
   chainWebpack(config) {
-    const svgRule = config.module.rule('svg');
+    const svgRule = config.module.rule("svg");
     svgRule.uses.clear();
-    svgRule
-      .use('vue-svg-loader')
-      .loader('vue-svg-loader');
+    svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+  },
+  pwa: {
+    workboxOptions: {
+      exclude: [/\.zip$/, /\.pptx$/, /public\/files\/.*/]
+    }
   }
 };
-  

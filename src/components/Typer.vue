@@ -64,7 +64,6 @@ export default {
       if (this.text[this.charsTyped - 1] === ",") {
         randDelay *= 3;
       }
-      console.log(randDelay);
       setTimeout(this.typeChar, randDelay);
     }
   },
