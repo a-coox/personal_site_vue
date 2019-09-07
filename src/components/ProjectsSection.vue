@@ -1,7 +1,7 @@
 <template>
   <Section id="project" :header="'Projects'">
     <div class="projects">
-      <Project v-for="(project, i) in projects" :key="i" :project="project" />
+      <Project v-for="project in projects" :key="project.name" :project="project" />
       <Collapser :collapsed="moreCollapsed">
         <Project v-for="(project, i) in projectsExtra" :key="i" :project="project" />
       </Collapser>
