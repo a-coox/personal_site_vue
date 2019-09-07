@@ -47,7 +47,6 @@ export default {
 
   methods: {
     inViewCallback() {
-      console.log("uh oh spaghetio");
       this.animated = true;
     }
   }

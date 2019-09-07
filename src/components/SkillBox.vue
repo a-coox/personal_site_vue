@@ -1,7 +1,7 @@
 <template>
   <div class="skillBox">
     <h3 class="skillHead">{{title}}</h3>
-    <Skill v-for="(skill, i) in skills" :key="i" :skill="skill" />
+    <Skill v-for="(skill, i) in skills" :key="i" :skill="skill" :animate="animate" />
     <div class="scale">
       <div id="basic">Basic</div>
       <div id="good">Intermediate</div>
@@ -24,6 +24,10 @@ export default {
     skills: {
       type: Array,
       default: () => {}
+    },
+    animate: {
+      type: Boolean,
+      default: false
     }
   },
 

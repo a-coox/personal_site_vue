@@ -1,45 +1,47 @@
 <template>
-  <Section 
-    id="skills" 
-    :header="'Skills & Experience'" 
-    :coloured="true">
-    <div class="skillContainer">
-      <SkillBox :title="'Professional'" :skills="professionalSkills"/>
-      <SkillBox :title="'Personal'" :skills="personalSkills"/>
-    </div>
+  <Section id="skills" :header="'Skills & Experience'" :coloured="true">
+    <Intersect @enter.once="animate = true" :threshold="[0.2]">
+      <div class="skillContainer">
+        <SkillBox :title="'Professional'" :skills="professionalSkills" :animate="animate" />
+        <SkillBox :title="'Personal'" :skills="personalSkills" :animate="animate" />
+      </div>
+    </Intersect>
   </Section>
 </template>
 
 <script>
-import Section from './Section';
-import SkillBox from './SkillBox';
-import professionalSkills from '../data/professionalSkills.json';
-import personalSkills from '../data/personalSkills.json';
+import Section from "./Section";
+import SkillBox from "./SkillBox";
+import professionalSkills from "../data/professionalSkills.json";
+import personalSkills from "../data/personalSkills.json";
+import Intersect from "vue-intersect";
 
 export default {
-  name: 'SkillsSection',
+  name: "SkillsSection",
 
   components: {
     Section,
-    SkillBox
+    SkillBox,
+    Intersect
   },
 
   data() {
     return {
       professionalSkills: professionalSkills,
-      personalSkills: personalSkills
+      personalSkills: personalSkills,
+      animate: false
     };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  #skills {
-    color: white;
+#skills {
+  color: white;
 
-    .skillContainer {
-      width: 95%;
-      max-width: 1000px;
-    }
+  .skillContainer {
+    width: 95%;
+    max-width: 1000px;
   }
+}
 </style>

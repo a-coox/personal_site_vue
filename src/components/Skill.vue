@@ -2,7 +2,12 @@
   <div class="skill">
     <p>{{skill.name}}</p>
     <div class="barGraph">
-      <div class="bar" v-for="(level, i) in skill.level" :key="i"></div>
+      <div
+        class="bar"
+        v-for="(level, i) in skill.level"
+        :key="i"
+        :class="{glow: (animateCount > i)}"
+      ></div>
     </div>
   </div>
 </template>
@@ -19,6 +24,30 @@ export default {
           name: "",
           level: 0
         };
+      }
+    },
+    animate: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      animateCount: 0
+    };
+  },
+
+  watch: {
+    animate(newVal) {
+      if (newVal) {
+        const interval = setInterval(() => {
+          if (this.animateCount >= this.skill.level) {
+            clearTimeout(interval);
+          }
+          this.animateCount++;
+          console.log(this.animateCount);
+        }, 200);
       }
     }
   }
@@ -51,6 +80,9 @@ export default {
       display: inline-block;
       border-radius: 8px;
       margin: 0 1.5%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, box-shadow 0.7s ease-in-out 1s;
+      box-shadow: 0 0 7px 3px;
 
       &:first-of-type {
         margin-left: 0;
@@ -62,26 +94,37 @@ export default {
 
       &:nth-child(6) {
         background-color: #330968;
+        color: #330968;
       }
 
       &:nth-child(5) {
         background-color: #322f7c;
+        color: #322f7c;
       }
 
       &:nth-child(4) {
         background-color: #32538f;
+        color: #32538f;
       }
 
       &:nth-child(3) {
         background-color: #316698;
+        color: #316698;
       }
 
       &:nth-child(2) {
         background-color: #3192b0;
+        color: #3192b0;
       }
 
       &:nth-child(1) {
         background-color: #30cdcf;
+        color: #30cdcf;
+      }
+
+      &.glow {
+        opacity: 100;
+        box-shadow: none;
       }
     }
   }
@@ -143,6 +186,17 @@ export default {
       opacity: 0;
       visibility: hidden;
       transition: all 0.16s ease-in-out;
+    }
+  }
+
+  @keyframes glow {
+    from {
+      opacity: 0;
+      box-shadow: 0 0 7px 3px;
+    }
+
+    to {
+      opacity: 100;
     }
   }
 }
