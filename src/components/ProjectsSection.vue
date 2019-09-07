@@ -1,9 +1,19 @@
 <template>
   <Section id="project" :header="'Projects'">
     <div class="projects">
-      <Project v-for="project in projects" :key="project.name" :project="project" />
+      <Project
+        class="mainProject"
+        v-for="project in projects"
+        :key="project.name"
+        :project="project"
+      />
       <Collapser :collapsed="moreCollapsed">
-        <Project v-for="(project, i) in projectsExtra" :key="i" :project="project" />
+        <Project
+          class="extraProject"
+          v-for="(project, i) in projectsExtra"
+          :key="i"
+          :project="project"
+        />
       </Collapser>
       <Button @click.native="showMore">{{showMoreText}}</Button>
     </div>
@@ -55,5 +65,13 @@ export default {
   margin: 0 auto;
   width: 95%;
   max-width: 920px;
+
+  .mainProject:first-child {
+    padding-top: 0;
+  }
+
+  .extraProject {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
 }
 </style>

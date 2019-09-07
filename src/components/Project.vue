@@ -62,7 +62,7 @@ export default {
   align-items: center;
   align-content: center;
   padding: 2em 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   opacity: 0;
 
   &.animated {
@@ -98,13 +98,8 @@ export default {
     width: 37%;
   }
 
-  &:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
   &:first-of-type {
-    padding-top: 0;
+    border-top: none;
   }
 }
 </style>
