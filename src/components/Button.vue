@@ -22,9 +22,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$mainColour: rgb(60, 82, 139);
+$invertColour: white;
+
 a {
-  color: rgb(60, 82, 139);
-  border: 2px solid rgb(60, 82, 139);
+  color: $mainColour;
+  border: 2px solid $mainColour;
   background-color: transparent;
   padding: 10px;
   display: inline-block;
@@ -39,8 +42,8 @@ a {
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(60, 82, 139);
-    color: white;
+    background-color: $mainColour;
+    color: $invertColour;
   }
 }
 </style>

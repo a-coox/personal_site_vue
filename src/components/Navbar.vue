@@ -3,9 +3,9 @@
     <Logo :class="{ pageScroll: isScrolled }" />
     <a href="#home" :class="{ active: (active === 'home') }">Home</a>
     <a href="#about" id="navAbout" :class="{ active: (active === 'about') }">About Me</a>
-    <a href="#skills" id="navSkills" :class="{ active: (active === 'skills') }">Skills & Experience</a>
+    <a href="#skills" id="navSkills" :class="{ active: (active === 'skills') }">Skills</a>
     <a href="#project" ref="project" :class="{ active: (active === 'project') }">Projects</a>
-    <a href="#education" ref="education" :class="{ active: (active === 'education') }">Education</a>
+    <a href="#education" ref="education" :class="{ active: (active === 'education') }">Experience</a>
     <a href="#contact" ref="contact" :class="{ active: (active === 'contact') }">Contact</a>
   </nav>
 </template>

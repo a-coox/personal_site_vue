@@ -46,7 +46,6 @@ export default {
             clearTimeout(interval);
           }
           this.animateCount++;
-          console.log(this.animateCount);
         }, 200);
       }
     }
