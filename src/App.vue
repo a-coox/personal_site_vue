@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar :isScrolled="isScrolled" :active="activePage" />
+    <Navbar :isScrolled="isScrolled" :active="activePage" :isScrolledFully="isScrolledFully" />
     <LandingSection ref="home" />
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
@@ -46,6 +46,9 @@ export default {
   computed: {
     activePage() {
       return this.pages[this.active];
+    },
+    isScrolledFully() {
+      return this.active != 0;
     }
   },
 
