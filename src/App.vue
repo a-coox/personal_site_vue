@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar :isScrolled="isScrolled" :active="activePage" :isScrolledFully="isScrolledFully" />
-    <LandingSection ref="home" />
+    <LandingSection ref="home" :isActive="!isScrolledFully"/>
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
     <ProjectsSection ref="project" />

@@ -163,6 +163,8 @@ export default class ParticleAnimation {
 
   initCanvas() {
     this.canvas.ctx = this.canvas.elem.getContext('2d');
+    // this.mousePos.x = Math.round(this.canvas.elem.width / 2);
+    // this.mousePos.y = Math.round(this.canvas.elem.height * 0.7);
   }
 
   updateCanvas(width, height) {
@@ -198,7 +200,18 @@ export default class ParticleAnimation {
 
   start() {
     this.forEachParticle(this.startParticleAnimate.bind(this));
-    requestAnimationFrame(this.animateFrame.bind(this));
+    this.anim.req = requestAnimationFrame(this.animateFrame.bind(this));
+  }
+
+  stop() {
+    if (this.anim.req != null) {
+      cancelAnimationFrame(this.anim.req);
+      this.anim.req = null;
+    }
+  }
+
+  continue() {
+    this.anim.req = requestAnimationFrame(this.animateFrame.bind(this));
   }
 
   startParticleAnimate(particle) {
@@ -216,20 +229,7 @@ export default class ParticleAnimation {
     };
   }
 
-  stop() {
-    if (this.anim.req != null) {
-      cancelAnimationFrame(this.anim.req);
-      this.anim.req = null;
-    }
-  }
-
   animateFrame(delta) {
-    // if (this.mousePos.updated) {
-    //   this.mousePos.updated = false;
-    //   // const mousePoint = this.findClosestParticleToMouse();
-    //   // this.updateVisibleParticles(mousePoint);
-    // }
-
     this.canvas.ctx.clearRect(0, 0, this.canvas.elem.width, this.canvas.elem.height);
     this.forEachParticle((particle, i, j) => {
       this.updateParticleOpacity(particle, i, j);
@@ -238,7 +238,7 @@ export default class ParticleAnimation {
       }
       particle.draw();
     });
-    requestAnimationFrame(this.animateFrame.bind(this));
+    this.anim.req = requestAnimationFrame(this.animateFrame.bind(this));
   }
 
   forEachParticle(func) {
@@ -260,14 +260,8 @@ export default class ParticleAnimation {
     const distance = this.distanceFromMouse(particle);
     particle.setOpacity(this.distanceToOpacity(distance));
     if (particle.opacity === 0) {
-      return; // No need to do the rest, it's not visible
+      
     }
-    // console.log
-    // particle.drawLines();
-    // const lineDistances = this.getLineDistances(particle, i, j);
-    // for (let line of lineDistances) {
-    //   particle.drawLineTo(line.particle, this.distanceToLineOpacity(line.distance));
-    // }
   }
 
   getConnectedParticles(pointI, pointJ) {
@@ -337,9 +331,6 @@ export default class ParticleAnimation {
     }
 
     let opacity = 1 - (distance / maxDistance);
-    // if (opacity < 0.2) {
-    //   opacity = 0;
-    // }
     return opacity;
   }
 
@@ -349,9 +340,8 @@ export default class ParticleAnimation {
     return opacity;
   }
 
-  onMousemove(evt) {
-    // console.log(evt);
-    const rect = evt.target.getBoundingClientRect();
+  onMouseMove(evt) {
+    const rect = this.canvas.elem.getBoundingClientRect();
     this.mousePos.x = evt.clientX - rect.left;
     this.mousePos.y = evt.clientY - rect.top;
     this.mousePos.updated = true;

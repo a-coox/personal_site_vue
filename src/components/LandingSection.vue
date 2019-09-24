@@ -1,6 +1,6 @@
 <template>
-  <Section id="home" class="container" :showHeader="false">
-    <ParticleCanvas class="canvas"/>
+  <Section id="home" class="container" :showHeader="false" @mousemove.native="mousemove">
+    <ParticleCanvas class="canvas" ref="canvas" :isActive="isActive"/>
     <div class="content">
       <div class="title">
         <Typer :text="'Hi, I\'m Aaron Coox'" />
@@ -22,13 +22,22 @@ import { smoothScroll } from "../services/SmoothScroll";
 
 export default {
   name: "LandingSection",
+  props: {
+    isActive: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: {
     Section,
     Typer,
     ParticleCanvas
   },
   methods: {
-    onClick: smoothScroll
+    onClick: smoothScroll,
+    mousemove(evt) {
+        this.$refs.canvas.mousemove(evt);
+    }
   }
 };
 </script>
@@ -48,8 +57,6 @@ export default {
   }
 
   .content {
-    pointer-events: none;
-
     .title,
     #enterBtn {
       position: absolute;

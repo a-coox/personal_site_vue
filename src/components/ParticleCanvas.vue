@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" :width="canvas.width" :height="canvas.height" @mousemove.stop="animation.onMousemove">
+  <canvas ref="canvas" :width="canvas.width" :height="canvas.height">
   </canvas>
 </template>
 
@@ -10,9 +10,18 @@ import debounce from "@/services/debounce.js";
 export default {
   name: 'ParticleCanvas',
 
+  props: {
+    isActive: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   data() {
     return {
       animation: null,
+      running: false,
+      hasStarted: false,
       canvas: {
         width: 500,
         height: 500
@@ -21,6 +30,12 @@ export default {
   },
 
   methods: {
+    mousemove(evt) {
+      if (!this.hasStarted) {
+        this.running = true;
+      }
+      this.animation.onMouseMove(evt);
+    },
     resize(evt) {
       if (this.$refs.canvas) {
         const { clientWidth, clientHeight } = this.$refs.canvas;
@@ -33,6 +48,26 @@ export default {
     }
   },
 
+  watch: {
+    running(newVal) {
+      if (newVal) {
+        console.log('playing');
+        if (!this.hasStarted) {
+          this.hasStarted = true;
+          this.animation.start();
+        } else {
+          this.animation.continue();
+        }
+      } else {
+        console.log('Pausing');
+        this.animation.stop();
+      }
+    },
+    isActive(newVal) {
+      this.running = newVal;
+    }
+  },
+
   mounted() {
     const canvas = this.$refs.canvas;
     this.canvas.width = this.$refs.canvas.clientWidth;
@@ -40,8 +75,6 @@ export default {
 
     this.$nextTick(() => {
       this.animation = new ParticleAnimation(canvas);
-      this.animation.start();
-
       window.addEventListener('resize', debounce((evt) => this.resize(evt), 50));
     });
   }
