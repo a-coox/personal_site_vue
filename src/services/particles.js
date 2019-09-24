@@ -131,12 +131,12 @@ export default class ParticleAnimation {
     particles: {
       density: 65,  // Number of pixels between particles
       maxRange: 60,
-      maxDistance: 50000
+      maxDistance: 55000
     },
     lineCount: 3,
     duration: {
       min: 1000,
-      max: 3000
+      max: 2000
     }
   };
   particles = [];

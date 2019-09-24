@@ -18,10 +18,11 @@ import SkillsSection from "./components/SkillsSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import EducationSection from "./components/EducationSection.vue";
 import ContactSection from "./components/ContactSection.vue";
-import InterSectionObserver from "./services/InterSectionObserver";
+// import InterSectionObserver from "./services/InterSectionObserver";
 
 import smoothscroll from "smoothscroll-polyfill";
 smoothscroll.polyfill();
+require('intersection-observer');
 
 export default {
   name: "app",
@@ -76,13 +77,13 @@ export default {
 
   mounted() {
     // Initialise trigger to change nav bar colour on scroll
-    const landingObserver = new InterSectionObserver(this.navScrollCallback, {
+    const landingObserver = new IntersectionObserver(this.navScrollCallback, {
       threshold: 0.8
     });
     landingObserver.observe(this.$refs.home.$el);
 
     // Another trigger to change section of the page highlighted
-    const sectionObserver = new InterSectionObserver(this.sectionScrollBack, {
+    const sectionObserver = new IntersectionObserver(this.sectionScrollBack, {
       threshold: 0.2
     });
     this.pages.forEach(page => {
