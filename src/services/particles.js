@@ -31,19 +31,22 @@ class Particle {
     y: 0
   };
   options = {
-    radius: 5,
+    radius: 3,
     colours: {
       particle: '156,217,249',
       line: '156,217,249'
     },
+    lineOpacity: 0.5
   };
-  fillStyle = null;
+  fillStyle = '';
+  lineStyle = '';
   opacity = 0;
   anim = {
     startPos: { x: 0, y: 0},
     startTime: 0,
     duration: 0
   };
+  connected = [];
 
   constructor(ctx, anchor, pos, options = {}) {
     this.ctx = ctx;
@@ -60,20 +63,30 @@ class Particle {
 
   updateStyles() {
     this.fillStyle = createRgbString(this.options.colours.particle, this.opacity);
+    const lineOpacity = this.opacity * this.options.lineOpacity;
+    this.lineStyle = createRgbString(this.options.colours.line, lineOpacity);
   }
 
   draw() {
     if (this.opacity > 0) {
+      // console.log(this.connected);
+      // Draw self
       this.ctx.beginPath();
       this.ctx.arc(this.pos.x, this.pos.y, this.options.radius, 0, CIRC_ANGLE, false);
       this.ctx.fillStyle = this.fillStyle;
       this.ctx.fill();
+
+      // Draw lines
+      this.connected.forEach((point) => this.drawLineTo(point));
     }
   }
 
-  drawLineTo(otherPoint, opacity) {
+  drawLineTo(otherPoint) {
+    if (otherPoint.opacity === 0) {
+      return;
+    }
     this.ctx.beginPath();
-    this.ctx.strokeStyle = createRgbString(this.options.colours.line, opacity);
+    this.ctx.strokeStyle = this.lineStyle;
     this.ctx.moveTo(this.pos.x, this.pos.y);
     this.ctx.lineTo(otherPoint.pos.x, otherPoint.pos.y);
     this.ctx.stroke();
@@ -91,6 +104,9 @@ class Particle {
   }
 
   animateFrame(timestamp) {
+    if (this.opacity === 0) {
+      return false;
+    }
     const delta = timestamp - this.anim.startTime;
     
     if (delta < this.anim.duration) {
@@ -113,12 +129,11 @@ export default class ParticleAnimation {
   };
   options = {
     particles: {
-      density: 80,  // Number of pixels between particles
-      maxRange: 100,
-      maxDistance: 40000
+      density: 65,  // Number of pixels between particles
+      maxRange: 60,
+      maxDistance: 50000
     },
-    lineRange: 2,
-    lineCount: 5,
+    lineCount: 3,
     duration: {
       min: 1000,
       max: 3000
@@ -143,18 +158,23 @@ export default class ParticleAnimation {
 
   init() {
     this.initCanvas();
-    this.initParticles();
+    this.initParticles(this.canvas.elem.width, this.canvas.elem.height);
   }
 
   initCanvas() {
     this.canvas.ctx = this.canvas.elem.getContext('2d');
   }
 
-  initParticles() {
-    const { width, height } = this.canvas.elem;
+  updateCanvas(width, height) {
+    this.particles = [];
+    this.initParticles(width, height);
+  }
+
+  initParticles(width, height) {
+    console.log(`${width}, ${height}`)
     const density = this.options.particles.density;
-    const numParticlesX = Math.round(width / density);
-    const numParticlesY = Math.round(height / density);
+    const numParticlesX = Math.ceil(width / density) + 1;
+    const numParticlesY = Math.ceil(height / density) + 1;
 
     for (let i = 0; i < numParticlesX; i++) {
       const particlesY = [];
@@ -164,10 +184,16 @@ export default class ParticleAnimation {
           y: j * density
         };
         const randPos = this.randomParticleOffset(anchor);
-        particlesY.push(new Particle(this.canvas.ctx, anchor, randPos, { opacity: 1 }));
+        const particle = new Particle(this.canvas.ctx, anchor, randPos);
+        particle.options.radius = Math.round(randRange(2, 4));
+        particlesY.push(particle);
       }
       this.particles.push(particlesY);
     }
+
+    this.forEachParticle((particle, i, j) => {
+      particle.connected = this.getConnectedParticles(i, j);
+    });
   }
 
   start() {
@@ -237,12 +263,29 @@ export default class ParticleAnimation {
       return; // No need to do the rest, it's not visible
     }
     // console.log
+    // particle.drawLines();
+    // const lineDistances = this.getLineDistances(particle, i, j);
+    // for (let line of lineDistances) {
+    //   particle.drawLineTo(line.particle, this.distanceToLineOpacity(line.distance));
+    // }
+  }
 
-    const lineDistances = this.getLineDistances(particle, i, j);
-    for (let line of lineDistances) {
-      // const lineOpacity = this.distanceToOpacity(line.distance);
-      particle.drawLineTo(line.particle, this.distanceToLineOpacity(line.distance));
+  getConnectedParticles(pointI, pointJ) {
+    const minX = Math.max(0, pointI - 1);
+    const maxX = Math.min(this.particles.length - 1, pointI + 1);
+    const minY = Math.max(0, pointJ - 1);
+    const maxY = Math.min(this.particles[0].length - 1, pointJ + 1);
+    const connected = [];
+
+    for (let i = minX; i <= maxX; i++) {
+      for (let j = minY; j <= maxY; j++) {
+        if (i == pointI && j == pointJ) {
+          continue;
+        }
+        connected.push(this.particles[i][j]);
+      }
     }
+    return connected.slice(0, this.options.lineCount);
   }
 
   getLineDistances(particle, i, j) {
@@ -293,24 +336,24 @@ export default class ParticleAnimation {
       return 0;
     }
 
-    return 1 - (distance / maxDistance);
-  }
-
-  distanceToLineOpacity(distance) {
-    let opacity = this.distanceToOpacity(distance);
-    opacity *= 0.5;
-    // opacity *= opacity;
-
-    // if (opacity < 0.1) {
+    let opacity = 1 - (distance / maxDistance);
+    // if (opacity < 0.2) {
     //   opacity = 0;
     // }
     return opacity;
   }
 
+  distanceToLineOpacity(distance) {
+    let opacity = this.distanceToOpacity(distance);
+    opacity *= 0.5;
+    return opacity;
+  }
+
   onMousemove(evt) {
     // console.log(evt);
-    this.mousePos.x = evt.clientX;
-    this.mousePos.y = evt.clientY;
+    const rect = evt.target.getBoundingClientRect();
+    this.mousePos.x = evt.clientX - rect.left;
+    this.mousePos.y = evt.clientY - rect.top;
     this.mousePos.updated = true;
   }
 }
