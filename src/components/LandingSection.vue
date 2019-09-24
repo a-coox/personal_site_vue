@@ -1,6 +1,6 @@
 <template>
   <Section id="home" class="container" :showHeader="false">
-    <!-- <canvas id="canvas"></canvas> -->
+    <ParticleCanvas class="canvas"/>
     <div class="content">
       <div class="title">
         <Typer :text="'Hi, I\'m Aaron Coox'" />
@@ -17,13 +17,15 @@
 <script>
 import Section from "./Section";
 import Typer from "./Typer";
+import ParticleCanvas from "./ParticleCanvas";
 import { smoothScroll } from "../services/SmoothScroll";
 
 export default {
   name: "LandingSection",
   components: {
     Section,
-    Typer
+    Typer,
+    ParticleCanvas
   },
   methods: {
     onClick: smoothScroll
@@ -41,72 +43,80 @@ export default {
   height: 100vh;
   z-index: 1;
 
-  .title,
-  #enterBtn {
-    position: absolute;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    color: white;
+  .canvas {
+    z-index: 3;
   }
 
-  .title {
-    top: 25%;
-  }
+  .content {
+    pointer-events: none;
 
-  #enterBtn {
-    text-transform: uppercase;
-    font-family: "Nunito Sans", Georgia, sans-serif;
-    transition: 0.35s ease-in-out;
-    line-height: 50px;
-    text-decoration: none;
-    border: 2px solid white;
-    outline: 2px solid white;
-    outline-offset: -8px;
-    width: 160px;
-    top: 60%;
-    overflow: hidden;
-    padding: 8px 2px;
-
-    &::before {
-      transition: 0.35s ease-in-out;
-      content: "";
+    .title,
+    #enterBtn {
       position: absolute;
-      top: 0;
-      right: -50px;
-      bottom: 0;
+      display: block;
+      text-align: center;
+      margin: 0 auto;
       left: 0;
-      border-right: 50px solid transparent;
-      border-bottom: 70px solid rgba(255, 255, 255, 1);
-      transform: translateX(-100%);
-      z-index: -1;
+      right: 0;
+      z-index: 4;
+      color: white;
     }
 
-    &:hover {
-      font-weight: bold;
-      color: rgb(20, 20, 20);
-      border-color: rgb(20, 20, 20);
-      outline-color: rgb(20, 20, 20);
+    .title {
+      top: 25%;
+    }
+
+    #enterBtn {
+      text-transform: uppercase;
+      font-family: "Nunito Sans", Georgia, sans-serif;
+      transition: 0.35s ease-in-out;
+      line-height: 50px;
+      text-decoration: none;
+      border: 2px solid white;
+      outline: 2px solid white;
+      outline-offset: -8px;
+      width: 160px;
+      top: 60%;
+      overflow: hidden;
+      padding: 8px 2px;
 
       &::before {
-        transform: translateX(0);
+        transition: 0.35s ease-in-out;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 70px solid rgba(255, 255, 255, 1);
+        transform: translateX(-100%);
+        z-index: -1;
+      }
+
+      &:hover {
+        font-weight: bold;
+        color: rgb(20, 20, 20);
+        border-color: rgb(20, 20, 20);
+        outline-color: rgb(20, 20, 20);
+
+        &::before {
+          transform: translateX(0);
+        }
       }
     }
-  }
 
-  #description {
-    font-family: "Nunito Sans", Georgia, sans-serif;
-    font-weight: 200;
-    font-size: calc(15px + 0.7vw);
-    display: inline-block;
-    text-align: center;
-    margin-top: 2%;
-    width: 40%;
-    min-width: 10em;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+    #description {
+      font-family: "Nunito Sans", Georgia, sans-serif;
+      font-weight: 200;
+      font-size: calc(15px + 0.7vw);
+      display: inline-block;
+      text-align: center;
+      margin-top: 2%;
+      width: 40%;
+      min-width: 10em;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+    }
   }
 
   #overlay {

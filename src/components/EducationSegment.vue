@@ -2,9 +2,14 @@
   <div class="educationSegment" :class="{right: right}">
     <div class="line" />
     <div class="timeDot" />
-    <div class="arrow" />
     <p class="date" v-if="date">{{date}}</p>
-    <div class="textbox">
+    <FadeIn
+      :direction="right ? 'right' : 'left'"
+      :to-animate="animateArrow"
+      class="arrow"
+      :enabled="false"
+    />
+    <FadeIn :direction="right ? 'right' : 'left'" class="textbox" @animate="animateArrow = true">
       <div class="gpa" v-if="gpa != 0">
         <GradHatLogo />
         <p>
@@ -25,31 +30,12 @@
         <BriefcaseLogo />
         <slot />
       </div>
-
-      <!-- <div class="courses" v-if="courses.length">
-        <Collapser :collapsed="!showCourses">
-          <BookLogo />
-          <div class="courseInfo">
-            <p class="name">Courses Completed:</p>
-            <ul class="subjList">
-              <li v-for="(course, i) in courses" :key="i">
-                <a
-                  target="_blank"
-                  :href="'https://www.uq.edu.au/study/course.html?course_code=' + course.link"
-                >{{course.title}}</a>
-              </li>
-            </ul>
-          </div>
-        </Collapser>
-        <Button class="showMore" @click.native="showCourses = !showCourses">{{showMoreText}}</Button>
-      </div>-->
-    </div>
+    </FadeIn>
   </div>
 </template>
 
 <script>
-// import Collapser from "./Collapser";
-// import Button from "./Button";
+import FadeIn from "./FadeIn";
 import GradHatLogo from "../assets/icons/gradHatLogo.svg";
 import AwardLogo from "../assets/icons/awardLogo.svg";
 import BookLogo from "../assets/icons/bookLogo.svg";
@@ -84,12 +70,14 @@ export default {
   components: {
     GradHatLogo,
     AwardLogo,
-    BriefcaseLogo
+    BriefcaseLogo,
+    FadeIn
   },
 
   data() {
     return {
-      showCourses: false
+      showCourses: false,
+      animateArrow: false
     };
   },
 

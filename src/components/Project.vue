@@ -1,6 +1,6 @@
 <template>
-  <Intersect @enter.once="inViewCallback" :threshold="[0.6]">
-    <div class="project" :class="{animated: animated}">
+  <FadeIn>
+    <div class="project">
       <img :src="project.img" :alt="project.imgAlt" />
       <div class="projText">
         <h2>{{project.name}}</h2>
@@ -11,11 +11,11 @@
         <slot />
       </div>
     </div>
-  </Intersect>
+  </FadeIn>
 </template>
 
 <script>
-import Intersect from "vue-intersect";
+import FadeIn from "./FadeIn";
 
 export default {
   name: "Project",
@@ -36,19 +36,7 @@ export default {
   },
 
   components: {
-    Intersect
-  },
-
-  data() {
-    return {
-      animated: false
-    };
-  },
-
-  methods: {
-    inViewCallback() {
-      this.animated = true;
-    }
+    FadeIn
   }
 };
 </script>
@@ -63,7 +51,6 @@ export default {
   align-content: center;
   padding: 2em 0;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-  opacity: 0;
 
   &.animated {
     @include fade-in;

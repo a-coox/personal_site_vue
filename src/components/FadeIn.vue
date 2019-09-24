@@ -1,20 +1,76 @@
 <template>
-  <transition name="fade-in">
-    <slot />
-  </transition>
+  <Intersect @enter.once="animate" :threshold="[0.6]">
+    <div class="animateContainer" :class="{animated: animated, right: direction == 'right'}">
+      <slot />
+    </div>
+  </Intersect>
 </template>
 
+<script>
+import Intersect from "vue-intersect";
+
+export default {
+  name: "FadeIn",
+
+  props: {
+    threshold: {
+      type: Array,
+      default: () => [0.6]
+    },
+    direction: {
+      type: String,
+      default: "left"
+    },
+    toAnimate: {
+      type: Boolean,
+      default: false
+    },
+    enabled: {
+      type: Boolean,
+      default: true
+    }
+  },
+
+  data() {
+    return {
+      animatedInternal: false
+    };
+  },
+
+  computed: {
+    animated() {
+      return this.animatedInternal || this.toAnimate;
+    }
+  },
+
+  methods: {
+    animate() {
+      if (this.enabled) {
+        this.animatedInternal = true;
+        this.$emit("animate");
+      }
+    }
+  },
+
+  components: {
+    Intersect
+  }
+};
+</script>
+
 <style lang="scss" scoped>
-.fadeIn {
-  .fade-in-enter-active,
-  .fade-in-leave-active {
-    transition: all 0.3s ease-out;
+.animateContainer {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.right {
+    transform: translateX(20px);
   }
 
-  .fade-in-enter,
-  .fade-in-leave-to {
-    transform: translateX(10px);
-    opacity: 0;
+  &.animated {
+    opacity: 100;
+    transform: initial;
   }
 }
 </style>
