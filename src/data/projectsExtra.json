@@ -8,7 +8,11 @@
       "SQLite",
       "Java"
     ],
-    "description": "During a one-month intensive entrepreneurship program in China, my team and I created an app. It is marketed at schools, providing route planning and pickup scheduling abilities. It uses clustering/path-finding algorithms to plan optimal bus routes. Parents are able to use the app to select pickup dates, which automatically modifies the route."
+    "description": "During a one-month intensive entrepreneurship program in China, my team and I created an app. It is marketed at schools, providing route planning and pickup scheduling abilities. It uses clustering/path-finding algorithms to plan optimal bus routes. Parents are able to use the app to select pickup dates, which automatically modifies the route.",
+    "link": {
+      "text": "View Slides",
+      "href": "/files/docs.pdf"
+    }
   },
   {
     "name": "Choose Your Own Adventure",
@@ -18,6 +22,10 @@
       "JS & JQuery",
       "UX Design"
     ],
-    "description": "Using only vanilla javascript and jQuery, I made an interactive web-based version of the classic Choose Your Own Adventure novel 'Underground Kingdom'. Features include additional animations and imagery as well as a branching path-based system that allow endless exploration."
+    "description": "Using only vanilla javascript and jQuery, I made an interactive web-based version of the classic Choose Your Own Adventure novel 'Underground Kingdom'. Features include additional animations and imagery as well as a branching path-based system that allow endless exploration.",
+    "link": {
+      "text": "Visit Site",
+      "href": "http://deco1400.bitballoon.com/"
+    }
   }
 ]

@@ -8,7 +8,11 @@
       "Vue.js",
       "OAuth 2.0"
     ],
-    "description": "I individually designed, created, and published a website which provides powerful filtering and playlist automation functionality for Spotify users. Made using Vue.JS, the public Spotify API, and OAuth 2.0 authentication. It was designed as a demonstration of my front-end abilities."
+    "description": "I individually designed, created, and published a website which provides powerful filtering and playlist automation functionality for Spotify users. Made using Vue.JS, the public Spotify API, and OAuth 2.0 authentication. It was designed as a demonstration of my front-end abilities.",
+    "link": {
+      "text": "Visit Site",
+      "href": "https://spotisearch.com/"
+    }
   },
   {
     "name": "RemindMe IOT Assistant",
@@ -19,7 +23,11 @@
       "Embedded C",
       "Alexa"
     ],
-    "description": "I designed the RemindMe cube prototype to assist dementia patients with their daily routine by providing a compact cloud-enabled cube. The cube can be set to softly pulse and play music at certain times of day, or based on smart-home triggers (such as a positional sensor) to remind the patient of their goal. I implemented it with an IOT-enabled microcontroller and full Alexa integration through Amazon AWS."
+    "description": "I designed the RemindMe cube prototype to assist dementia patients with their daily routine by providing a compact cloud-enabled cube. The cube can be set to softly pulse and play music at certain times of day, or based on smart-home triggers (such as a positional sensor) to remind the patient of their goal. I implemented it with an IOT-enabled microcontroller and full Alexa integration through Amazon AWS.",
+    "link": {
+      "text": "Visit Article",
+      "href": "https://medium.com/@thebelgiumesekid/how-to-create-an-alexa-enabled-smart-home-with-particle-photon-part-1-d8c4da3702e9"
+    }
   },
   {
     "name": "ColoChat Chatbot",
@@ -30,7 +38,11 @@
       "Serverless",
       "Vue.js"
     ],
-    "description": "Colochat is an interactive web-app which inspires an interest in Aboriginal languages. Children are able to talk to Colo and ask for translations, quizzes, etc. I used Google's DialogFlow API for advanced natural language processing as well as Firebase Functions for the server. The front-end was done in Vue."
+    "description": "Colochat is an interactive web-app which inspires an interest in Aboriginal languages. Children are able to talk to Colo and ask for translations, quizzes, etc. I used Google's DialogFlow API for advanced natural language processing as well as Firebase Functions for the server. The front-end was done in Vue.",
+    "link": {
+      "text": "Visit Site",
+      "href": "https://colochat.netlify.com/"
+    }
   },
   {
     "name": "UQ GIT EdX Course",

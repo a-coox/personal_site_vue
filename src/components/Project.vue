@@ -8,6 +8,13 @@
         <ul class="projTags">
           <li v-for="(tag, i) in project.tags" :key="i">{{tag}}</li>
         </ul>
+        <Button 
+          v-if="project.link" 
+          :href="project.link.href" 
+          target="_blank" 
+          class="button">
+          {{project.link.text}}
+        </Button>
         <slot />
       </div>
     </div>
@@ -16,6 +23,7 @@
 
 <script>
 import FadeIn from "./FadeIn";
+import Button from "./Button";
 
 export default {
   name: "Project",
@@ -36,7 +44,8 @@ export default {
   },
 
   components: {
-    FadeIn
+    FadeIn,
+    Button
   }
 };
 </script>
@@ -57,6 +66,8 @@ export default {
   }
 
   .projText {
+    display: flex;
+    flex-direction: column;
     font-size: 18px;
     text-align: left;
     width: 100%;
@@ -78,15 +89,15 @@ export default {
       margin-right: 8px;
       margin-top: 0.6em;
     }
+
+    .button {
+      margin-top: 25px;
+    }
   }
 
   img {
     border-radius: 20px;
     width: 37%;
-  }
-
-  &:first-of-type {
-    border-top: none;
   }
 }
 </style>

@@ -131,7 +131,8 @@ export default class ParticleAnimation {
     particles: {
       density: 65,  // Number of pixels between particles
       maxRange: 60,
-      maxDistance: 55000
+      maxDistance: 55000,
+      maxOpacity: 0.9
     },
     lineCount: 3,
     duration: {
@@ -259,9 +260,6 @@ export default class ParticleAnimation {
   updateParticleOpacity(particle, i, j) {
     const distance = this.distanceFromMouse(particle);
     particle.setOpacity(this.distanceToOpacity(distance));
-    if (particle.opacity === 0) {
-      
-    }
   }
 
   getConnectedParticles(pointI, pointJ) {
@@ -331,7 +329,7 @@ export default class ParticleAnimation {
     }
 
     let opacity = 1 - (distance / maxDistance);
-    return opacity;
+    return opacity * this.options.particles.maxOpacity;
   }
 
   distanceToLineOpacity(distance) {

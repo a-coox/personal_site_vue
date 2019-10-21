@@ -15,7 +15,7 @@
           :project="project"
         />
       </Collapser>
-      <Button @click.native="showMore">{{showMoreText}}</Button>
+      <Button class="showMore" @click.native="showMore">{{showMoreText}}</Button>
     </div>
   </Section>
 </template>
@@ -66,12 +66,24 @@ export default {
   width: 95%;
   max-width: 920px;
 
-  .mainProject:first-child {
-    padding-top: 0;
-  }
-
   .extraProject {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .showMore {
+    font-size: 18px;
+    padding: 13px;
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+}
+</style>
+
+<style lang="scss">
+.mainProject:first-child {
+  .project {
+    padding-top: 0;
+    border-top: none;
   }
 }
 </style>

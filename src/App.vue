@@ -18,7 +18,6 @@ import SkillsSection from "./components/SkillsSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import EducationSection from "./components/EducationSection.vue";
 import ContactSection from "./components/ContactSection.vue";
-// import InterSectionObserver from "./services/InterSectionObserver";
 
 import smoothscroll from "smoothscroll-polyfill";
 smoothscroll.polyfill();
