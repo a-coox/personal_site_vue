@@ -1,0 +1,17 @@
+[
+  {
+    "date": "Jun 2019 - Sep 2019",
+    "title": "Software Engineer Intern @Infosys, India",
+    "description": "I completed a Robotics intership in India with Infosys, a global IT company. I researched and implemented a co-operative pathfinding algorithm in low-cost robotics."
+  },
+  {
+    "date": "Nov 2018 - Dec 2018",
+    "title": "Cyber Security Intern @Cympire, Israel",
+    "description": "I wrote a fully automated Windows Kerberos Vulnerability exploit in C. I also created an Azure infrastructure to execute this vulnerability on, able to be automatically deployed through PowerShell."
+  }, 
+  {
+    "date": "Apr 2018 - Feb 2019",
+    "title": "Front-end Developer @GBST, Brisbane",
+    "description": "I worked as a front-end developer with GBST on financial graphing using Vue.js and D3.js. I also briefly worked with React."
+  }
+]

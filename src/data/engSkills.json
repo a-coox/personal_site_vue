@@ -1,0 +1,22 @@
+{
+  "description": "I'm a stickler for effiency, so I take any opportunity to dive into some low-level C programming. I've done some internships writing C, and teach it at UQ.",
+  "skills": [
+    {
+      "name": "C (Windows and Linux)",
+      "level": 5
+    },
+    {
+      "name": "Embedded Systems (STM32, Atmel)",
+      "level": 3
+    },
+    {
+      "name": "Linux & Bash",
+      "level": 6,
+      "description": ""
+    },
+    {
+      "name": "IOT With AWS & Particle.io",
+      "level": 3
+    }
+  ]
+}

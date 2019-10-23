@@ -2,19 +2,34 @@
   <Section id="skills" :header="'Skills & Experience'" :coloured="true">
     <Intersect @enter.once="animate = true" :threshold="[0.2]">
       <div class="skillContainer">
-        <SkillBox :title="'Professional'" :skills="professionalSkills" :animate="animate" />
-        <SkillBox :title="'Personal'" :skills="personalSkills" :animate="animate" />
+        <SkillBox
+          class="webSkills"
+          :title="'Web Developer'"
+          :skills="webDevSkills.skills"
+          :description="webDevSkills.description"
+          :animate="animate"
+          :logo="webLogo"
+        />
+        <SkillBox
+          :title="'Computer Engineer'"
+          :skills="engSkills.skills"
+          :description="engSkills.description"
+          :animate="animate"
+          :logo="cpuLogo"
+        />
       </div>
     </Intersect>
   </Section>
 </template>
 
 <script>
+import Intersect from "vue-intersect";
 import Section from "./Section";
 import SkillBox from "./SkillBox";
-import professionalSkills from "../data/professionalSkills.json";
-import personalSkills from "../data/personalSkills.json";
-import Intersect from "vue-intersect";
+import webDevSkills from "../data/webDevSkills.json";
+import engSkills from "../data/engSkills.json";
+import cpuLogo from "../assets/icons/cpuLogo.svg";
+import webLogo from "../assets/icons/webLogo2.svg";
 
 export default {
   name: "SkillsSection",
@@ -27,9 +42,11 @@ export default {
 
   data() {
     return {
-      professionalSkills: professionalSkills,
-      personalSkills: personalSkills,
-      animate: false
+      webDevSkills: webDevSkills,
+      engSkills: engSkills,
+      animate: false,
+      webLogo: webLogo,
+      cpuLogo: cpuLogo
     };
   }
 };
@@ -41,7 +58,13 @@ export default {
 
   .skillContainer {
     width: 95%;
-    max-width: 1000px;
+    max-width: 1100px;
   }
+}
+</style>
+
+<style lang="scss">
+.webSkills .logo {
+  padding: 2px;
 }
 </style>

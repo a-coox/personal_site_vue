@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .skill {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   p {
     font-size: 1.05em;

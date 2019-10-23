@@ -16,7 +16,7 @@ import LandingSection from "./components/LandingSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import SkillsSection from "./components/SkillsSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
-import EducationSection from "./components/EducationSection.vue";
+import EducationSection from "./components/EducationSectionNew.vue";
 import ContactSection from "./components/ContactSection.vue";
 
 import smoothscroll from "smoothscroll-polyfill";

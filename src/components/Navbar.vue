@@ -116,7 +116,7 @@ export default {
         color: black;
 
         &:hover:not(.active) {
-          color: rgba(43, 122, 119, 0.6) !important;
+          color: rgb(97, 143, 228) !important;
           font-weight: 600;
         }
       }

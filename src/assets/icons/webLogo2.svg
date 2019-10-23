@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634 558"><defs>
+<linearGradient id="SVG_BLUE" gradientTransform="rotate(45)" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#1babfea6"/>
+<stop offset="1" stop-color="#2430dfa6"/>
+</linearGradient>
+</defs>
+<g fill="url(#SVG_BLUE)" stroke="url(#SVG_BLUE)">
+<rect x="12.5" y="12.5" width="609" height="533" rx="87.5" fill="#fff"/>
+<path d="M889,140a75.29,75.29,0,0,1,75,75V573a75.29,75.29,0,0,1-75,75H455a75.29,75.29,0,0,1-75-75V215a75.29,75.29,0,0,1,75-75H889m0-25H455c-55,0-100,45-100,100V573c0,55,45,100,100,100H889c55,0,100-45,100-100V215c0-55-45-100-100-100Z" transform="translate(-355 -115)"/>
+<line x1="18.5" y1="177.78" x2="613.5" y2="177.78" stroke-miterlimit="10" stroke-width="25"/>
+<circle cx="95" cy="98" r="21.5" fill="none" stroke-miterlimit="10" stroke-width="25"/><circle cx="175" cy="98" r="21.5" fill="none" stroke-miterlimit="10" stroke-width="25"/><circle cx="255" cy="98" r="21.5" fill="none" stroke-miterlimit="10" stroke-width="25"/><line x1="289.97" y1="443.97" x2="342.36" y2="247.5" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="25"/><path d="M594.12,404.39l-62.12,58,65.46,61.09" transform="translate(-355 -115)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="25"/><path d="M752.88,404.05,815,462l-65.46,61.09" transform="translate(-355 -115)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="25"/>
+</g>
+</svg>

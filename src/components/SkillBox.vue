@@ -1,7 +1,14 @@
 <template>
   <div class="skillBox">
+    <component class="logo" :is="logo"/>
     <h3 class="skillHead">{{title}}</h3>
-    <Skill v-for="(skill, i) in skills" :key="i" :skill="skill" :animate="animate" />
+
+    <p class="description">{{description}}</p>
+
+    <h4>Languages I use:</h4>
+    <div class="skills">
+      <Skill v-for="(skill, i) in skills" :key="i" :skill="skill" :animate="animate" />
+    </div>
     <div class="scale">
       <div id="basic">Basic</div>
       <div id="good">Intermediate</div>
@@ -25,14 +32,26 @@ export default {
       type: Array,
       default: () => {}
     },
+    description: {
+      type: String,
+      default: ""
+    },
     animate: {
       type: Boolean,
       default: false
+    },
+    logo: {
+      type: Object,
+      default: null
     }
   },
 
   components: {
     Skill
+  },
+
+  mounted() {
+    console.log(this.skills);
   }
 };
 </script>
@@ -41,29 +60,38 @@ export default {
 .skillBox {
   color: #17252a;
   vertical-align: top;
-  padding: 1.5em;
-  padding-top: 0;
+  padding: 25px 30px;
   margin: 0 3%;
   margin-bottom: 40px;
   width: 40%;
   min-width: 350px;
   display: inline-block;
   background-color: #feffff;
-  border-radius: 2px;
-
-  .skillHead {
-    position: relative;
-    top: -25px;
-    font-size: 1.5em;
-    background-color: rgb(226, 239, 247);
-    display: inline-block;
-    width: 200px;
-    padding: 15px;
-    border-radius: 4px;
-  }
+  border-radius: 10px;
 
   & > div:last-child() {
     margin-bottom: 15px;
+  }
+
+  .logo {
+    max-height: 75px;
+    margin-bottom: 5px;
+  }
+
+  .skillHead {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .description {
+    margin: 20px 0;
+    font-size: 18px;
+  }
+
+  h4 {
+    margin: 25px 0 20px 0;
+    font-size: 20px;
+    text-align: left;
   }
 
   .scale {
