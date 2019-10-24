@@ -35,11 +35,16 @@ export default {
 
 .timeline {
   display: flex;
+  align-items: stretch;
 
   .line {
     width: 8px;
     border-radius: 10px;
-    background: linear-gradient(180deg, #0c326bd8, #2c106dd8);
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 50, 107, 0.847),
+      rgba(44, 16, 109, 0.847)
+    );
     margin-right: 10px;
   }
 

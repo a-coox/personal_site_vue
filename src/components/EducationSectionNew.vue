@@ -57,7 +57,11 @@ export default {
 @import "../styles/screenSizes.scss";
 
 #education {
-  background: linear-gradient(135deg, #1b76feb7, #5c24dfa6);
+  background: linear-gradient(
+    135deg,
+    rgba(27, 118, 254, 0.718),
+    rgba(92, 36, 223, 0.651)
+  );
   padding-bottom: 3.5em;
 
   .edContainer {
