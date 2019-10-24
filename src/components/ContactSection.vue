@@ -91,4 +91,15 @@ export default {
     }
   }
 }
+
+@include for-phone {
+  #contact {
+    .contactInfo {
+      p {
+        width: 80%;
+        font-size: 20px;
+      }
+    }
+  }
+}
 </style>

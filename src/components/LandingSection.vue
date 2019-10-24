@@ -6,21 +6,24 @@
     @mousemove.native="mousemove"
   >
     <ParticleCanvas ref="canvas" class="canvas" :is-active="isActive" />
-    <div class="content">
-      <div class="title">
-        <Typer :text="'Hi, I\'m Aaron Coox'" />
-        <h2 id="description">
-          Computer & Electrical/Information Technology student. Welcome to my
-          resume.
-        </h2>
+    <Intersect :threshold="[0.8]" @enter="onEnter" @leave="onLeave">
+      <div class="content">
+        <div class="title">
+          <Typer :text="'Hi, I\'m Aaron Coox'" />
+          <h2 id="description">
+            Computer & Electrical/Information Technology student. Welcome to my
+            resume.
+          </h2>
+        </div>
+        <a id="enterBtn" href="#about" @click="onClick($event)">Explore Site</a>
       </div>
-      <a id="enterBtn" href="#about" @click="onClick($event)">Explore Site</a>
-    </div>
+    </Intersect>
     <div id="overlay"></div>
   </Section>
 </template>
 
 <script>
+import Intersect from "vue-intersect";
 import Section from "./Section";
 import Typer from "./Typer";
 import ParticleCanvas from "./ParticleCanvas";
@@ -31,7 +34,8 @@ export default {
   components: {
     Section,
     Typer,
-    ParticleCanvas
+    ParticleCanvas,
+    Intersect
   },
   props: {
     isActive: {
@@ -43,6 +47,13 @@ export default {
     onClick: smoothScroll,
     mousemove(evt) {
       this.$refs.canvas.mousemove(evt);
+    },
+    onEnter(evt) {
+      this.$emit("enter", evt);
+    },
+    onLeave(evt) {
+      // console.log("OOOO");
+      this.$emit("leave", evt);
     }
   }
 };
@@ -52,6 +63,7 @@ export default {
 @import "../styles/screenSizes.scss";
 
 .container {
+  position: relative;
   padding: 0;
   background-image: url("../assets/img/background/background-full.jpg");
   background-size: cover;
@@ -65,23 +77,31 @@ export default {
   }
 
   .content {
+    z-index: 4;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .title {
+      width: 100%;
+    }
+
     .title,
     #enterBtn {
-      position: absolute;
       display: block;
       text-align: center;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
       z-index: 4;
       color: white;
     }
 
-    .title {
-      top: 25%;
-    }
-
     #enterBtn {
+      position: relative;
       text-transform: uppercase;
       font-family: "Nunito Sans", Georgia, sans-serif;
       transition: 0.35s ease-in-out;
@@ -91,7 +111,6 @@ export default {
       outline: 2px solid white;
       outline-offset: -8px;
       width: 160px;
-      top: 60%;
       overflow: hidden;
       padding: 8px 2px;
 
@@ -124,13 +143,14 @@ export default {
     #description {
       font-family: "Nunito Sans", Georgia, sans-serif;
       font-weight: 200;
-      font-size: calc(15px + 0.7vw);
+      font-size: 24px;
       display: inline-block;
       text-align: center;
-      margin-top: 2%;
-      width: 40%;
+      margin-top: 20px;
+      margin-bottom: 60px;
       min-width: 10em;
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+      width: 40%;
     }
   }
 
@@ -138,14 +158,48 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    bottom: 0;
+    right: 0;
     background: linear-gradient(
       135deg,
       rgba(7, 18, 32, 0.7),
       rgba(15, 10, 34, 0.7)
     );
     z-index: 2;
+  }
+}
+
+@include for-tablet-landscape {
+  .container {
+    .content {
+      #description {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@include for-tablet-portrait {
+  .container {
+    .content {
+      #description {
+        width: 65%;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@include for-phone {
+  .container {
+    .content {
+      #description {
+        width: 85%;
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 45px;
+      }
+    }
   }
 }
 </style>

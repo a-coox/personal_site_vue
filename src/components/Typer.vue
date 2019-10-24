@@ -76,6 +76,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .typer {
   p {
     color: white;
@@ -100,6 +102,37 @@ export default {
       position: absolute;
       margin-left: 3px;
     }
+  }
+}
+
+@include for-tablet-portrait {
+  .typer {
+    p {
+      min-height: 80px;
+    }
+
+    .cursor::after {
+      height: 70px;
+    }
+  }
+}
+
+@include for-phone {
+  .typer {
+    p {
+      font-size: 50px;
+      min-height: 70px;
+    }
+
+    .cursor::after {
+      height: 50px;
+    }
+  }
+}
+
+@include for-phone-small {
+  .typer p {
+    font-size: 40px;
   }
 }
 </style>

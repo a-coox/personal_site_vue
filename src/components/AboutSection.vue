@@ -71,6 +71,8 @@ export default {
 
     p {
       width: 90%;
+      max-width: 600px;
+      text-align: center;
     }
 
     #myPhoto {

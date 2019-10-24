@@ -60,6 +60,8 @@ export default {
 
 @include for-tablet-portrait {
   .contactLink {
+    padding: 3%;
+
     a {
       svg {
         height: 60px;
