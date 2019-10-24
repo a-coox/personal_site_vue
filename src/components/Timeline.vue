@@ -31,6 +31,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .timeline {
   display: flex;
 
@@ -43,6 +45,14 @@ export default {
 
   .timelineElements {
     flex: 1;
+  }
+}
+
+@include for-phone {
+  .timeline {
+    .line {
+      margin-right: 5px;
+    }
   }
 }
 </style>

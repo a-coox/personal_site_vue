@@ -63,6 +63,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 #contact {
   .contactInfo {
     max-width: 940px;
@@ -75,6 +77,17 @@ export default {
 
     #contactLinks {
       margin-top: 20px;
+    }
+  }
+}
+
+@include for-tablet-portrait {
+  #contact {
+    .contactInfo {
+      p {
+        width: 80%;
+        font-size: 22px;
+      }
     }
   }
 }

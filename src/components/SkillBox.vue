@@ -62,6 +62,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .skillBox {
   color: #17252a;
   vertical-align: top;
@@ -161,6 +163,14 @@ export default {
         right: 0;
       }
     }
+  }
+}
+
+@include for-tablet-landscape {
+  .skillBox {
+    width: 95%;
+    max-width: 480px;
+    min-width: initial;
   }
 }
 </style>

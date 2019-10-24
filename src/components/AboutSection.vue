@@ -64,4 +64,18 @@ export default {
     object-fit: contain;
   }
 }
+
+@include for-tablet-portrait {
+  #aboutContainer {
+    flex-direction: column-reverse;
+
+    p {
+      width: 90%;
+    }
+
+    #myPhoto {
+      margin-bottom: 30px;
+    }
+  }
+}
 </style>

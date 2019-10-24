@@ -1,5 +1,11 @@
+@mixin for-phone-small {
+  @media (max-width: 450px) {
+    @content;
+  }
+}
+
 @mixin for-phone {
-  @media (max-width: 599px) {
+  @media (max-width: 600px) {
     @content;
   }
 }
@@ -11,7 +17,7 @@
 }
 
 @mixin for-tablet-landscape {
-  @media (max-width: 1199px) {
+  @media (max-width: 1200px) {
     @content;
   }
 }

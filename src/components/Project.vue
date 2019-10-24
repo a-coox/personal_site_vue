@@ -53,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/fadeIn.scss";
+@import "../styles/screenSizes.scss";
 
 .project {
   display: flex;
@@ -99,6 +100,50 @@ export default {
   img {
     border-radius: 20px;
     width: 37%;
+  }
+}
+
+@include for-tablet-landscape {
+  .project {
+    img {
+      width: 45%;
+    }
+  }
+}
+
+@include for-tablet-portrait {
+  .project {
+    flex-wrap: wrap;
+
+    img {
+      width: 380px;
+      margin-bottom: 20px;
+    }
+
+    .projText {
+      max-width: 85%;
+      text-align: center;
+      padding-left: 0;
+
+      h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+@include for-phone-small {
+  .project {
+    img {
+      width: 85%;
+      max-width: 350px;
+    }
+
+    .projText {
+      max-width: initial;
+    }
   }
 }
 </style>

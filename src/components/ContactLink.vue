@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .contactLink {
   display: inline-block;
   padding: 5%;
@@ -52,6 +54,28 @@ export default {
 
     svg {
       height: 80px;
+    }
+  }
+}
+
+@include for-tablet-portrait {
+  .contactLink {
+    a {
+      svg {
+        height: 60px;
+      }
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+@include for-phone {
+  .contactLink {
+    p {
+      font-size: 18px;
     }
   }
 }

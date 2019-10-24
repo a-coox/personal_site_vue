@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .timelineSegment {
   display: flex;
   margin-bottom: 40px;
@@ -39,11 +41,15 @@ export default {
   }
 
   .arrow {
+    $size: 15px;
+
+    position: relative;
+    left: 1px;
     width: 0;
     height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid white;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid white;
     margin-top: 30px;
   }
 
@@ -66,6 +72,20 @@ export default {
     .date {
       margin-bottom: 8px;
       color: rgb(89, 89, 95);
+    }
+  }
+}
+
+@include for-phone {
+  .timelineSegment {
+    height: initial;
+
+    .arrow {
+      $size: 12px;
+
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: $size solid white;
     }
   }
 }

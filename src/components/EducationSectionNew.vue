@@ -54,18 +54,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 #education {
   background: linear-gradient(135deg, #1b76feb7, #5c24dfa6);
+  padding-bottom: 3.5em;
 
   .edContainer {
-    width: 100%;
+    width: 97%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
     max-width: 1150px;
 
     .segment {
-      max-width: 45%;
+      width: 520px;
+      margin: 0 15px 20px 15px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       .timelineContainer {
         background-color: rgba(255, 255, 255, 0.35);
@@ -85,6 +94,22 @@ export default {
         max-width: 70px;
         max-height: 70px;
         fill: white;
+      }
+    }
+  }
+}
+
+@include for-phone {
+  #education {
+    .edContainer {
+      .segment {
+        margin-left: 0;
+        margin-right: 0;
+
+        .timelineContainer {
+          padding: 20px 5px;
+          background-color: transparent;
+        }
       }
     }
   }

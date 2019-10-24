@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/screenSizes.scss";
+
 .container {
   padding: 0;
   background-image: url("../assets/img/background/background-full.jpg");

@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../styles/screenSizes.scss";
+
 .section {
   color: #17252a;
   padding: 4em 0;
@@ -87,6 +89,17 @@ export default {
       &::after {
         background-color: white;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+@include for-phone {
+  .section {
+    header {
+      &::before,
+      &::after {
+        content: none;
       }
     }
   }

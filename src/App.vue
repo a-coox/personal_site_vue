@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <Navbar :isScrolled="isScrolled" :active="activePage" :isScrolledFully="isScrolledFully" />
-    <LandingSection ref="home" :isActive="!isScrolledFully"/>
+    <Navbar
+      :is-scrolled="isScrolled"
+      :active="activePage"
+      :is-scrolled-fully="isScrolledFully"
+    />
+    <LandingSection ref="home" :is-active="!isScrolledFully" />
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
     <ProjectsSection ref="project" />
@@ -21,10 +25,10 @@ import ContactSection from "./components/ContactSection.vue";
 
 import smoothscroll from "smoothscroll-polyfill";
 smoothscroll.polyfill();
-require('intersection-observer');
+require("intersection-observer");
 
 export default {
-  name: "app",
+  name: "App",
   components: {
     Navbar,
     LandingSection,
@@ -52,6 +56,22 @@ export default {
     }
   },
 
+  mounted() {
+    // Initialise trigger to change nav bar colour on scroll
+    const landingObserver = new IntersectionObserver(this.navScrollCallback, {
+      threshold: 0.8
+    });
+    landingObserver.observe(this.$refs.home.$el);
+
+    // Another trigger to change section of the page highlighted
+    const sectionObserver = new IntersectionObserver(this.sectionScrollBack, {
+      threshold: 0.2
+    });
+    this.pages.forEach(page => {
+      sectionObserver.observe(this.$refs[page].$el);
+    });
+  },
+
   methods: {
     navScrollCallback(entries) {
       // Only register landing page, only 1 entry.
@@ -72,22 +92,6 @@ export default {
         }
       }
     }
-  },
-
-  mounted() {
-    // Initialise trigger to change nav bar colour on scroll
-    const landingObserver = new IntersectionObserver(this.navScrollCallback, {
-      threshold: 0.8
-    });
-    landingObserver.observe(this.$refs.home.$el);
-
-    // Another trigger to change section of the page highlighted
-    const sectionObserver = new IntersectionObserver(this.sectionScrollBack, {
-      threshold: 0.2
-    });
-    this.pages.forEach(page => {
-      sectionObserver.observe(this.$refs[page].$el);
-    });
   }
 };
 </script>
