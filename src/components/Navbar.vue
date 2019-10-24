@@ -1,15 +1,35 @@
 <template>
   <div class="navbar">
-    <HamburgerMenu @click.native="onClickHamburg" :dark="isScrolledFully" :open="hamburgOpen" />
-    <div class="menuOverlay" v-show="hamburgOpen" />
-    <nav @click="onClick($event)" :class="{ pageScroll: isScrolled, slideIn: hamburgOpen }">
+    <HamburgerMenu
+      :dark="isScrolledFully"
+      :open="hamburgOpen"
+      @click.native="onClickHamburg"
+    />
+    <div v-show="hamburgOpen" class="menuOverlay" />
+    <nav
+      :class="{ pageScroll: isScrolled, slideIn: hamburgOpen }"
+      @click="onClick($event)"
+    >
       <Logo :class="{ pageScroll: isScrolled }" />
-      <a href="#home" :class="{ active: (active === 'home') }">Home</a>
-      <a href="#about" id="navAbout" :class="{ active: (active === 'about') }">About Me</a>
-      <a href="#skills" id="navSkills" :class="{ active: (active === 'skills') }">Skills</a>
-      <a href="#project" ref="project" :class="{ active: (active === 'project') }">Projects</a>
-      <a href="#education" ref="education" :class="{ active: (active === 'education') }">Experience</a>
-      <a href="#contact" ref="contact" :class="{ active: (active === 'contact') }">Contact</a>
+      <a href="#home" :class="{ active: active === 'home' }">Home</a>
+      <a id="navAbout" href="#about" :class="{ active: active === 'about' }"
+        >About Me</a
+      >
+      <a id="navSkills" href="#skills" :class="{ active: active === 'skills' }"
+        >Skills</a
+      >
+      <a ref="project" href="#project" :class="{ active: active === 'project' }"
+        >Projects</a
+      >
+      <a
+        ref="education"
+        href="#education"
+        :class="{ active: active === 'education' }"
+        >Experience</a
+      >
+      <a ref="contact" href="#contact" :class="{ active: active === 'contact' }"
+        >Contact</a
+      >
     </nav>
   </div>
 </template>

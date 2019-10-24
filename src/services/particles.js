@@ -1,19 +1,19 @@
-import merge from 'deepmerge';
+import merge from "deepmerge";
 
 const CIRC_ANGLE = 2 * Math.PI;
 
-function easeInOutCirc (t) {
+function easeInOutCirc(t) {
   var result;
   if (t <= 0.5) {
-    result = 0.5 - Math.sqrt(0.25 - t*t);
+    result = 0.5 - Math.sqrt(0.25 - t * t);
   } else {
-    result = 0.5 + Math.sqrt(0.25 - (t-1)*(t-1));
+    result = 0.5 + Math.sqrt(0.25 - (t - 1) * (t - 1));
   }
   return result;
 }
 
-function createRgbString (colour, opacity) {
-  return 'rgba(' + colour + ',' + opacity + ')';
+function createRgbString(colour, opacity) {
+  return "rgba(" + colour + "," + opacity + ")";
 }
 
 function randRange(min, max) {
@@ -33,16 +33,16 @@ class Particle {
   options = {
     radius: 3,
     colours: {
-      particle: '156,217,249',
-      line: '156,217,249'
+      particle: "156,217,249",
+      line: "156,217,249"
     },
     lineOpacity: 0.5
   };
-  fillStyle = '';
-  lineStyle = '';
+  fillStyle = "";
+  lineStyle = "";
   opacity = 0;
   anim = {
-    startPos: { x: 0, y: 0},
+    startPos: { x: 0, y: 0 },
     startTime: 0,
     duration: 0
   };
@@ -62,7 +62,10 @@ class Particle {
   }
 
   updateStyles() {
-    this.fillStyle = createRgbString(this.options.colours.particle, this.opacity);
+    this.fillStyle = createRgbString(
+      this.options.colours.particle,
+      this.opacity
+    );
     const lineOpacity = this.opacity * this.options.lineOpacity;
     this.lineStyle = createRgbString(this.options.colours.line, lineOpacity);
   }
@@ -72,12 +75,19 @@ class Particle {
       // console.log(this.connected);
       // Draw self
       this.ctx.beginPath();
-      this.ctx.arc(this.pos.x, this.pos.y, this.options.radius, 0, CIRC_ANGLE, false);
+      this.ctx.arc(
+        this.pos.x,
+        this.pos.y,
+        this.options.radius,
+        0,
+        CIRC_ANGLE,
+        false
+      );
       this.ctx.fillStyle = this.fillStyle;
       this.ctx.fill();
 
       // Draw lines
-      this.connected.forEach((point) => this.drawLineTo(point));
+      this.connected.forEach(point => this.drawLineTo(point));
     }
   }
 
@@ -108,19 +118,18 @@ class Particle {
       return false;
     }
     const delta = timestamp - this.anim.startTime;
-    
+
     if (delta < this.anim.duration) {
       const percent = easeInOutCirc(delta / this.anim.duration);
 
-      this.pos.x = this.anim.startPos.x + (this.anim.deltaPos.x * percent);
-      this.pos.y = this.anim.startPos.y + (this.anim.deltaPos.y * percent);
+      this.pos.x = this.anim.startPos.x + this.anim.deltaPos.x * percent;
+      this.pos.y = this.anim.startPos.y + this.anim.deltaPos.y * percent;
       return false;
-    } 
+    }
 
     return true;
   }
 }
-
 
 export default class ParticleAnimation {
   canvas = {
@@ -129,7 +138,7 @@ export default class ParticleAnimation {
   };
   options = {
     particles: {
-      density: 65,  // Number of pixels between particles
+      density: 65, // Number of pixels between particles
       maxRange: 60,
       maxDistance: 55000,
       maxOpacity: 0.9
@@ -163,7 +172,7 @@ export default class ParticleAnimation {
   }
 
   initCanvas() {
-    this.canvas.ctx = this.canvas.elem.getContext('2d');
+    this.canvas.ctx = this.canvas.elem.getContext("2d");
     // this.mousePos.x = Math.round(this.canvas.elem.width / 2);
     // this.mousePos.y = Math.round(this.canvas.elem.height * 0.7);
   }
@@ -174,7 +183,7 @@ export default class ParticleAnimation {
   }
 
   initParticles(width, height) {
-    console.log(`${width}, ${height}`)
+    console.log(`${width}, ${height}`);
     const density = this.options.particles.density;
     const numParticlesX = Math.ceil(width / density) + 1;
     const numParticlesY = Math.ceil(height / density) + 1;
@@ -217,8 +226,11 @@ export default class ParticleAnimation {
 
   startParticleAnimate(particle) {
     const timestamp = performance.now();
-    const {x, y} = this.randomParticleOffset(particle.anchor);
-    const randDuration = randRange(this.options.duration.min, this.options.duration.max);
+    const { x, y } = this.randomParticleOffset(particle.anchor);
+    const randDuration = randRange(
+      this.options.duration.min,
+      this.options.duration.max
+    );
     particle.startAnimateTo(x, y, randDuration, timestamp);
   }
 
@@ -231,7 +243,12 @@ export default class ParticleAnimation {
   }
 
   animateFrame(delta) {
-    this.canvas.ctx.clearRect(0, 0, this.canvas.elem.width, this.canvas.elem.height);
+    this.canvas.ctx.clearRect(
+      0,
+      0,
+      this.canvas.elem.width,
+      this.canvas.elem.height
+    );
     this.forEachParticle((particle, i, j) => {
       this.updateParticleOpacity(particle, i, j);
       if (particle.animateFrame(delta)) {
@@ -253,11 +270,11 @@ export default class ParticleAnimation {
   findClosestParticleToMouse() {
     return {
       x: Math.round(this.mousePos.x / this.options.particles.density),
-      y: Math.round(this.mousePos.y / this.options.particles.density),
+      y: Math.round(this.mousePos.y / this.options.particles.density)
     };
   }
 
-  updateParticleOpacity(particle, i, j) {
+  updateParticleOpacity(particle) {
     const distance = this.distanceFromMouse(particle);
     particle.setOpacity(this.distanceToOpacity(distance));
   }
@@ -295,8 +312,8 @@ export default class ParticleAnimation {
         }
         const neighbour = this.particles[i][j];
         distances.push({
-          particle: neighbour, 
-          distance: this.distance(particle.pos, neighbour.pos) 
+          particle: neighbour,
+          distance: this.distance(particle.pos, neighbour.pos)
         });
       }
     }
@@ -328,7 +345,7 @@ export default class ParticleAnimation {
       return 0;
     }
 
-    let opacity = 1 - (distance / maxDistance);
+    let opacity = 1 - distance / maxDistance;
     return opacity * this.options.particles.maxOpacity;
   }
 

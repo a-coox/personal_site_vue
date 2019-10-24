@@ -1,6 +1,5 @@
 <template>
-  <canvas ref="canvas" :width="canvas.width" :height="canvas.height">
-  </canvas>
+  <canvas ref="canvas" :width="canvas.width" :height="canvas.height"> </canvas>
 </template>
 
 <script>
@@ -8,7 +7,7 @@ import ParticleAnimation from "@/services/particles.js";
 import debounce from "@/services/debounce.js";
 
 export default {
-  name: 'ParticleCanvas',
+  name: "ParticleCanvas",
 
   props: {
     isActive: {
@@ -29,29 +28,10 @@ export default {
     };
   },
 
-  methods: {
-    mousemove(evt) {
-      if (!this.hasStarted) {
-        this.running = true;
-      }
-      this.animation.onMouseMove(evt);
-    },
-    resize(evt) {
-      if (this.$refs.canvas) {
-        const { clientWidth, clientHeight } = this.$refs.canvas;
-        if (this.canvas.width != clientWidth || this.canvas.height != clientHeight) {
-          this.canvas.width = clientWidth;
-          this.canvas.height = clientHeight;
-          this.animation.updateCanvas(clientWidth, clientHeight);
-        }
-      }
-    }
-  },
-
   watch: {
     running(newVal) {
       if (newVal) {
-        console.log('playing');
+        console.log("playing");
         if (!this.hasStarted) {
           this.hasStarted = true;
           this.animation.start();
@@ -59,7 +39,7 @@ export default {
           this.animation.continue();
         }
       } else {
-        console.log('Pausing');
+        console.log("Pausing");
         this.animation.stop();
       }
     },
@@ -75,8 +55,30 @@ export default {
 
     this.$nextTick(() => {
       this.animation = new ParticleAnimation(canvas);
-      window.addEventListener('resize', debounce((evt) => this.resize(evt), 50));
+      window.addEventListener("resize", debounce(evt => this.resize(evt), 50));
     });
+  },
+
+  methods: {
+    mousemove(evt) {
+      if (!this.hasStarted) {
+        this.running = true;
+      }
+      this.animation.onMouseMove(evt);
+    },
+    resize() {
+      if (this.$refs.canvas) {
+        const { clientWidth, clientHeight } = this.$refs.canvas;
+        if (
+          this.canvas.width != clientWidth ||
+          this.canvas.height != clientHeight
+        ) {
+          this.canvas.width = clientWidth;
+          this.canvas.height = clientHeight;
+          this.animation.updateCanvas(clientWidth, clientHeight);
+        }
+      }
+    }
   }
 };
 </script>

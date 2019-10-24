@@ -1,12 +1,12 @@
 <template>
   <div class="skill">
-    <p>{{skill.name}}</p>
+    <p>{{ skill.name }}</p>
     <div class="barGraph">
       <div
-        class="bar"
         v-for="(level, i) in skill.level"
         :key="i"
-        :class="{glow: (animateCount > i)}"
+        class="bar"
+        :class="{ glow: animateCount > i }"
       ></div>
     </div>
   </div>

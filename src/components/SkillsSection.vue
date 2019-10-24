@@ -1,6 +1,6 @@
 <template>
   <Section id="skills" :header="'Skills & Experience'" :coloured="true">
-    <Intersect @enter.once="animate = true" :threshold="[0.2]">
+    <Intersect :threshold="[0.2]" @enter.once="animate = true">
       <div class="skillContainer">
         <SkillBox
           class="webSkills"

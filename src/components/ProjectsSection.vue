@@ -2,20 +2,22 @@
   <Section id="project" :header="'Projects'">
     <div class="projects">
       <Project
-        class="mainProject"
         v-for="project in projects"
         :key="project.name"
+        class="mainProject"
         :project="project"
       />
       <Collapser :collapsed="moreCollapsed">
         <Project
-          class="extraProject"
           v-for="(project, i) in projectsExtra"
           :key="i"
+          class="extraProject"
           :project="project"
         />
       </Collapser>
-      <Button class="showMore" @click.native="showMore">{{showMoreText}}</Button>
+      <Button class="showMore" @click.native="showMore">{{
+        showMoreText
+      }}</Button>
     </div>
   </Section>
 </template>

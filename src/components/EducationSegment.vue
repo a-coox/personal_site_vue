@@ -1,32 +1,36 @@
 <template>
-  <div class="educationSegment" :class="{right: right}">
+  <div class="educationSegment" :class="{ right: right }">
     <div class="line" />
     <div class="timeDot" />
-    <p class="date" v-if="date">{{date}}</p>
+    <p v-if="date" class="date">{{ date }}</p>
     <FadeIn
       :direction="right ? 'right' : 'left'"
       :to-animate="animateArrow"
       class="arrow"
       :enabled="false"
     />
-    <FadeIn :direction="right ? 'right' : 'left'" class="textbox" @animate="animateArrow = true">
-      <div class="gpa" v-if="gpa != 0">
+    <FadeIn
+      :direction="right ? 'right' : 'left'"
+      class="textbox"
+      @animate="animateArrow = true"
+    >
+      <div v-if="gpa != 0" class="gpa">
         <GradHatLogo />
         <p>
           <span class="name">GPA:</span>
-          {{gpa}}
+          {{ gpa }}
         </p>
       </div>
 
-      <div class="awards" v-if="awards">
+      <div v-if="awards" class="awards">
         <AwardLogo />
         <p>
           <span class="name">Awards:</span>
-          {{awards}}
+          {{ awards }}
         </p>
       </div>
 
-      <div class="experience" v-if="$slots.default">
+      <div v-if="$slots.default" class="experience">
         <BriefcaseLogo />
         <slot />
       </div>
@@ -38,11 +42,17 @@
 import FadeIn from "./FadeIn";
 import GradHatLogo from "../assets/icons/gradHatLogo.svg";
 import AwardLogo from "../assets/icons/awardLogo.svg";
-import BookLogo from "../assets/icons/bookLogo.svg";
 import BriefcaseLogo from "../assets/icons/briefcaseLogo.svg";
 
 export default {
   name: "EducationSegment",
+
+  components: {
+    GradHatLogo,
+    AwardLogo,
+    BriefcaseLogo,
+    FadeIn
+  },
 
   props: {
     date: {
@@ -65,13 +75,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-
-  components: {
-    GradHatLogo,
-    AwardLogo,
-    BriefcaseLogo,
-    FadeIn
   },
 
   data() {
@@ -102,31 +105,6 @@ export default {
     ". text . . . ."
     ". text arrow dot date ."
     ". text . . . .";
-
-  &.right {
-    grid-template-columns: 15fr 14fr 4fr 2fr 26fr 1fr;
-    grid-template-areas:
-      ". . . . . ."
-      ". . . . text ."
-      ". date dot arrow text ."
-      ". . . . text .";
-
-    .arrow {
-      border-right: 15px solid white;
-      border-left: none;
-      justify-self: end;
-    }
-
-    .line {
-      grid-column: 3;
-    }
-
-    .date {
-      text-align: right;
-      margin-left: 0;
-      margin-right: 10%;
-    }
-  }
 
   .textbox {
     width: 100%;
@@ -242,6 +220,31 @@ export default {
     grid-column: 4;
     height: 100%;
     justify-self: center;
+  }
+
+  &.right {
+    grid-template-columns: 15fr 14fr 4fr 2fr 26fr 1fr;
+    grid-template-areas:
+      ". . . . . ."
+      ". . . . text ."
+      ". date dot arrow text ."
+      ". . . . text .";
+
+    .arrow {
+      border-right: 15px solid white;
+      border-left: none;
+      justify-self: end;
+    }
+
+    .line {
+      grid-column: 3;
+    }
+
+    .date {
+      text-align: right;
+      margin-left: 0;
+      margin-right: 10%;
+    }
   }
 }
 </style>

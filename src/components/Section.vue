@@ -1,5 +1,5 @@
 <template>
-  <section class="section" :class="{coloured: coloured}">
+  <section class="section" :class="{ coloured: coloured }">
     <header v-if="showHeader">{{ header }}</header>
     <slot />
   </section>

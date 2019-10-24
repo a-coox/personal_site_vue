@@ -3,17 +3,18 @@
     <div class="project">
       <img :src="project.img" :alt="project.imgAlt" />
       <div class="projText">
-        <h2>{{project.name}}</h2>
-        <p>{{project.description}}</p>
+        <h2>{{ project.name }}</h2>
+        <p>{{ project.description }}</p>
         <ul class="projTags">
-          <li v-for="(tag, i) in project.tags" :key="i">{{tag}}</li>
+          <li v-for="(tag, i) in project.tags" :key="i">{{ tag }}</li>
         </ul>
-        <Button 
-          v-if="project.link" 
-          :href="project.link.href" 
-          target="_blank" 
-          class="button">
-          {{project.link.text}}
+        <Button
+          v-if="project.link"
+          :href="project.link.href"
+          target="_blank"
+          class="button"
+        >
+          {{ project.link.text }}
         </Button>
         <slot />
       </div>
@@ -28,6 +29,11 @@ import Button from "./Button";
 export default {
   name: "Project",
 
+  components: {
+    FadeIn,
+    Button
+  },
+
   props: {
     project: {
       type: Object,
@@ -41,11 +47,6 @@ export default {
         };
       }
     }
-  },
-
-  components: {
-    FadeIn,
-    Button
   }
 };
 </script>

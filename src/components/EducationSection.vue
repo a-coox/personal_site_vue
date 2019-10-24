@@ -4,20 +4,18 @@
       <EducationSegment :date="'September, 2019'">
         I completed a
         <b>Robotics</b> intership in India with
-        <a
-          class="projectLink"
-          target="_blank"
-          href="https://infosys.com/"
-        >Infosys</a>, a global IT company. I researched and implemented a co-operative pathfinding algorithm for
-        unknown environments.
+        <a class="projectLink" target="_blank" href="https://infosys.com/"
+          >Infosys</a
+        >, a global IT company. I researched and implemented a co-operative
+        pathfinding algorithm for unknown environments.
       </EducationSegment>
       <EducationSegment v-bind="history[0]" :right="true" />
       <EducationSegment :date="'December, 2018'">
         <p>
           I undertook a
-          <b>Cyber Security</b> internship at Cympire in Israel. I wrote a fully automated Windows
-          Kerberos Vulnerability exploit in C. I also created an automated Azure infrastructure
-          to execute this vulnerability on.
+          <b>Cyber Security</b> internship at Cympire in Israel. I wrote a fully
+          automated Windows Kerberos Vulnerability exploit in C. I also created
+          an automated Azure infrastructure to execute this vulnerability on.
         </p>
       </EducationSegment>
       <EducationSegment :date="'February, 2018'" :right="true">
@@ -28,11 +26,12 @@
             class="projectLink"
             target="_blank"
             href="https://www.uq.edu.au/study/course.html?course_code=CSSE2010"
-          >Computer Systems</a>. I teach C programming & microcontrollers to classes of up to 90 students.
-          I also started as a
-          <b>Web Developer Intern</b> at
-          <a class="projectLink" target="_blank" href="https://www.gbst.com/">GBST</a>,
-          where I use Vue.js and D3.js to create advanced financial web-apps.
+            >Computer Systems</a
+          >. I teach C programming & microcontrollers to classes of up to 90
+          students. I also started as a <b>Web Developer Intern</b> at
+          <a class="projectLink" target="_blank" href="https://www.gbst.com/"
+            >GBST</a
+          >, where I use Vue.js and D3.js to create advanced financial web-apps.
         </p>
       </EducationSegment>
 
@@ -46,8 +45,9 @@
               class="projectLink"
               target="_blank"
               href="https://www.uq.edu.au/study/course.html?course_code=MATH1052"
-            >Calculus & ODEs</a>. Applied skills include advanced understanding of university content,
-            strong communication, and ability to teach.
+              >Calculus & ODEs</a
+            >. Applied skills include advanced understanding of university
+            content, strong communication, and ability to teach.
           </p>
         </EducationSegment>
         <EducationSegment :date="'June, 2016'">
@@ -58,13 +58,17 @@
               class="projectLink"
               target="_blank"
               href="http://agilityapplications.com/"
-            >Agility Applications</a>,
-            an investment software company. Applied skills include SQL Server queries, Atlassian
-            products, and software automation.
+              >Agility Applications</a
+            >, an investment software company. Applied skills include SQL Server
+            queries, Atlassian products, and software automation.
           </p>
         </EducationSegment>
       </Collapser>
-      <Button class="showMore" @click.native="showFullTimeline = !showFullTimeline">{{showMoreText}}</Button>
+      <Button
+        class="showMore"
+        @click.native="showFullTimeline = !showFullTimeline"
+        >{{ showMoreText }}</Button
+      >
     </div>
   </Section>
 </template>

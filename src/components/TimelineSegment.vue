@@ -2,9 +2,9 @@
   <FadeIn :direction="'right'" class="timelineSegment">
     <div class="arrow" />
     <div class="text">
-      <h3 class="title">{{data.title}}</h3>
-      <h4 class="date">{{data.date}}</h4>
-      <p class="description">{{data.description}}</p>
+      <h3 class="title">{{ data.title }}</h3>
+      <h4 class="date">{{ data.date }}</h4>
+      <p class="description">{{ data.description }}</p>
     </div>
   </FadeIn>
 </template>
@@ -15,15 +15,15 @@ import FadeIn from "./FadeIn";
 export default {
   name: "TimelineSegment",
 
+  components: {
+    FadeIn
+  },
+
   props: {
     data: {
       type: Object,
       default: () => {}
     }
-  },
-
-  components: {
-    FadeIn
   }
 };
 </script>

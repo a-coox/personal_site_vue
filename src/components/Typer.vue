@@ -1,6 +1,6 @@
 <template>
   <div class="typer">
-    <p :class="{cursor: cursorShow}">{{typedText}}</p>
+    <p :class="{ cursor: cursorShow }">{{ typedText }}</p>
   </div>
 </template>
 
@@ -41,6 +41,11 @@ export default {
     }
   },
 
+  mounted() {
+    this.startCursorAnim();
+    setTimeout(this.typeChar, this.typeStartDelay);
+  },
+
   methods: {
     startCursorAnim() {
       this.cursorAnim = setInterval(() => {
@@ -66,11 +71,6 @@ export default {
       }
       setTimeout(this.typeChar, randDelay);
     }
-  },
-
-  mounted() {
-    this.startCursorAnim();
-    setTimeout(this.typeChar, this.typeStartDelay);
   }
 };
 </script>

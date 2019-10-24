@@ -1,6 +1,9 @@
 <template>
-  <Intersect @enter.once="animate" :threshold="[0.6]">
-    <div class="animateContainer" :class="{animated: animated, right: direction == 'right'}">
+  <Intersect :threshold="[0.6]" @enter.once="animate">
+    <div
+      class="animateContainer"
+      :class="{ animated: animated, right: direction == 'right' }"
+    >
       <slot />
     </div>
   </Intersect>
@@ -11,6 +14,10 @@ import Intersect from "vue-intersect";
 
 export default {
   name: "FadeIn",
+
+  components: {
+    Intersect
+  },
 
   props: {
     threshold: {
@@ -50,10 +57,6 @@ export default {
         this.$emit("animate");
       }
     }
-  },
-
-  components: {
-    Intersect
   }
 };
 </script>

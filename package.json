@@ -18,20 +18,19 @@
     "vue-intersect": "^1.1.3"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-flow": "^7.2.0",
-    "@babel/preset-flow": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
-    "eslint-plugin-flowtype": "^4.2.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "flow-bin": "^0.106.3",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.9.0",
-    "prettier-eslint": "^9.0.0",
-    "prettier-stylelint": "^0.4.2",
+    "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
@@ -40,6 +39,8 @@
     "stylelint-webpack-plugin": "^0.10.5",
     "svgo": "^1.3.0",
     "vue-svg-loader": "^0.12.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "prettier-eslint": "^9.0.0",
+    "prettier-stylelint": "^0.4.2"
   }
 }

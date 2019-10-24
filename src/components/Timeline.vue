@@ -2,7 +2,11 @@
   <div class="timeline">
     <div class="line" />
     <div class="timelineElements">
-      <TimelineSegment v-for="(segmentData, i) in data" :key="i" :data="segmentData" />
+      <TimelineSegment
+        v-for="(segmentData, i) in data"
+        :key="i"
+        :data="segmentData"
+      />
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@
     <a :href="link" target="_blank">
       <component :is="logo" />
     </a>
-    <p class="iconSub">{{text}}</p>
+    <p class="iconSub">{{ text }}</p>
   </div>
 </template>
 

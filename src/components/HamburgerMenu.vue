@@ -1,5 +1,5 @@
 <template>
-  <div id="hamburgerMenu" :class="{dark: dark, open: open}">
+  <div id="hamburgerMenu" :class="{ dark: dark, open: open }">
     <div class="icon">
       <div class="bar"></div>
       <div class="bar"></div>
@@ -47,6 +47,12 @@ export default {
     }
   }
 
+  &.dark {
+    .bar {
+      background-color: black;
+    }
+  }
+
   &.open {
     .bar {
       background-color: black;
@@ -62,12 +68,6 @@ export default {
       &:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
       }
-    }
-  }
-
-  &.dark {
-    .bar {
-      background-color: black;
     }
   }
 

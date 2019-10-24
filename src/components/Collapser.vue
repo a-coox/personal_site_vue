@@ -1,5 +1,5 @@
 <template>
-  <div class="collapser" ref="collapser">
+  <div ref="collapser" class="collapser">
     <slot />
   </div>
 </template>
@@ -15,12 +15,27 @@ export default {
     }
   },
 
+  watch: {
+    collapsed(shouldCollapse, isCollapsed) {
+      if (isCollapsed && !shouldCollapse) {
+        this.expand();
+      } else if (!isCollapsed && shouldCollapse) {
+        this.collapse();
+      }
+    }
+  },
+
+  mounted() {
+    const elem = this.$refs.collapser;
+    elem.style.height = "0px";
+  },
+
   methods: {
     expand() {
       const elem = this.$refs.collapser;
       const height = elem.scrollHeight;
       elem.style.height = height + "px";
-      const callee = evt => {
+      const callee = () => {
         elem.removeEventListener("transitionend", callee);
         elem.style.height = null;
         this.hidden = false;
@@ -44,21 +59,6 @@ export default {
         });
       });
     }
-  },
-
-  watch: {
-    collapsed(shouldCollapse, isCollapsed) {
-      if (isCollapsed && !shouldCollapse) {
-        this.expand();
-      } else if (!isCollapsed && shouldCollapse) {
-        this.collapse();
-      }
-    }
-  },
-
-  mounted() {
-    const elem = this.$refs.collapser;
-    elem.style.height = "0px";
   }
 };
 </script>

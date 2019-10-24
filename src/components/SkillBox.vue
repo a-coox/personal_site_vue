@@ -1,13 +1,18 @@
 <template>
   <div class="skillBox">
-    <component class="logo" :is="logo"/>
-    <h3 class="skillHead">{{title}}</h3>
+    <component :is="logo" class="logo" />
+    <h3 class="skillHead">{{ title }}</h3>
 
-    <p class="description">{{description}}</p>
+    <p class="description">{{ description }}</p>
 
     <h4>Languages I use:</h4>
     <div class="skills">
-      <Skill v-for="(skill, i) in skills" :key="i" :skill="skill" :animate="animate" />
+      <Skill
+        v-for="(skill, i) in skills"
+        :key="i"
+        :skill="skill"
+        :animate="animate"
+      />
     </div>
     <div class="scale">
       <div id="basic">Basic</div>
@@ -22,6 +27,10 @@ import Skill from "./Skill.vue";
 
 export default {
   name: "SkillBox",
+
+  components: {
+    Skill
+  },
 
   props: {
     title: {
@@ -44,10 +53,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-
-  components: {
-    Skill
   },
 
   mounted() {

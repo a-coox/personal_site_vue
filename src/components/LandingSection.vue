@@ -1,12 +1,18 @@
 <template>
-  <Section id="home" class="container" :showHeader="false" @mousemove.native="mousemove">
-    <ParticleCanvas class="canvas" ref="canvas" :isActive="isActive"/>
+  <Section
+    id="home"
+    class="container"
+    :show-header="false"
+    @mousemove.native="mousemove"
+  >
+    <ParticleCanvas ref="canvas" class="canvas" :is-active="isActive" />
     <div class="content">
       <div class="title">
         <Typer :text="'Hi, I\'m Aaron Coox'" />
-        <h2
-          id="description"
-        >Computer & Electrical/Information Technology student. Welcome to my resume.</h2>
+        <h2 id="description">
+          Computer & Electrical/Information Technology student. Welcome to my
+          resume.
+        </h2>
       </div>
       <a id="enterBtn" href="#about" @click="onClick($event)">Explore Site</a>
     </div>
@@ -22,21 +28,21 @@ import { smoothScroll } from "../services/SmoothScroll";
 
 export default {
   name: "LandingSection",
+  components: {
+    Section,
+    Typer,
+    ParticleCanvas
+  },
   props: {
     isActive: {
       type: Boolean,
       default: false
     }
   },
-  components: {
-    Section,
-    Typer,
-    ParticleCanvas
-  },
   methods: {
     onClick: smoothScroll,
     mousemove(evt) {
-        this.$refs.canvas.mousemove(evt);
+      this.$refs.canvas.mousemove(evt);
     }
   }
 };
