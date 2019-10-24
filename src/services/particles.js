@@ -72,7 +72,6 @@ class Particle {
 
   draw() {
     if (this.opacity > 0) {
-      // console.log(this.connected);
       // Draw self
       this.ctx.beginPath();
       this.ctx.arc(
@@ -173,8 +172,6 @@ export default class ParticleAnimation {
 
   initCanvas() {
     this.canvas.ctx = this.canvas.elem.getContext("2d");
-    // this.mousePos.x = Math.round(this.canvas.elem.width / 2);
-    // this.mousePos.y = Math.round(this.canvas.elem.height * 0.7);
   }
 
   updateCanvas(width, height) {
@@ -183,7 +180,6 @@ export default class ParticleAnimation {
   }
 
   initParticles(width, height) {
-    console.log(`${width}, ${height}`);
     const density = this.options.particles.density;
     const numParticlesX = Math.ceil(width / density) + 1;
     const numParticlesY = Math.ceil(height / density) + 1;

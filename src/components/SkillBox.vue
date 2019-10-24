@@ -53,10 +53,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-
-  mounted() {
-    console.log(this.skills);
   }
 };
 </script>

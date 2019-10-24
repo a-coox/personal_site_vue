@@ -5,7 +5,12 @@
       :active="activePage"
       :is-scrolled-fully="isScrolledFully"
     />
-    <LandingSection ref="home" :is-active="!isScrolledFully" />
+    <LandingSection
+      ref="home"
+      :is-active="!isScrolledFully"
+      @enter="onEnter"
+      @leave="onLeave"
+    />
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
     <ProjectsSection ref="project" />
@@ -57,12 +62,6 @@ export default {
   },
 
   mounted() {
-    // Initialise trigger to change nav bar colour on scroll
-    const landingObserver = new IntersectionObserver(this.navScrollCallback, {
-      threshold: 0.8
-    });
-    landingObserver.observe(this.$refs.home.$el);
-
     // Another trigger to change section of the page highlighted
     const sectionObserver = new IntersectionObserver(this.sectionScrollBack, {
       threshold: 0.2
@@ -73,10 +72,15 @@ export default {
   },
 
   methods: {
-    navScrollCallback(entries) {
-      // Only register landing page, only 1 entry.
-      const evt = entries[0];
-      this.isScrolled = !evt.isIntersecting;
+    onEnter(evt) {
+      if (evt[0].intersectionRatio > 0.8) {
+        this.isScrolled = false;
+      } else {
+        this.isScrolled = true;
+      }
+    },
+    onLeave() {
+      this.isScrolled = true;
     },
     sectionScrollBack(entries) {
       for (const entry of entries) {

@@ -33,3 +33,10 @@
     @content;
   }
 }
+
+@mixin for-desktop-hd {
+  @media (min-resolution: 190dpi) and (min-width: 1800px),
+    (min-width: 2800px) {
+    @content;
+  }
+}

@@ -31,7 +31,6 @@ export default {
   watch: {
     running(newVal) {
       if (newVal) {
-        console.log("playing");
         if (!this.hasStarted) {
           this.hasStarted = true;
           this.animation.start();
@@ -39,7 +38,6 @@ export default {
           this.animation.continue();
         }
       } else {
-        console.log("Pausing");
         this.animation.stop();
       }
     },

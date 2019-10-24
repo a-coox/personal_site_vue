@@ -52,7 +52,6 @@ export default {
       this.$emit("enter", evt);
     },
     onLeave(evt) {
-      // console.log("OOOO");
       this.$emit("leave", evt);
     }
   }
@@ -169,6 +168,19 @@ export default {
   }
 }
 
+@include for-phone {
+  .container {
+    .content {
+      #description {
+        width: 85%;
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 45px;
+      }
+    }
+  }
+}
+
 @include for-tablet-landscape {
   .container {
     .content {
@@ -190,16 +202,33 @@ export default {
   }
 }
 
-@include for-phone {
+@media (max-width: 799px) {
   .container {
-    .content {
-      #description {
-        width: 85%;
-        font-size: 20px;
-        margin-top: 0;
-        margin-bottom: 45px;
-      }
-    }
+    background-image: url("../assets/img/background/background-mobile.jpg");
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    background-image: url("../assets/img/background/background-1000.jpg");
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    background-image: url("../assets/img/background/background-1400.jpg");
+  }
+}
+
+@media (min-width: 1500px) {
+  .container {
+    background-image: url("../assets/img/background/background-1920.jpg");
+  }
+}
+
+@include for-desktop-hd {
+  .container {
+    background-image: url("../assets/img/background/background-full.jpg");
   }
 }
 </style>
