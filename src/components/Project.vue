@@ -1,7 +1,12 @@
 <template>
   <FadeIn>
     <div class="project">
-      <img :src="project.img" :alt="project.imgAlt" />
+      <Picture
+        class="picture"
+        :src="project.img"
+        :alt="project.imgAlt"
+        :ext="'png'"
+      />
       <div class="projText">
         <h2>{{ project.name }}</h2>
         <p>{{ project.description }}</p>
@@ -25,13 +30,15 @@
 <script>
 import FadeIn from "./FadeIn";
 import Button from "./Button";
+import Picture from "./Picture";
 
 export default {
   name: "Project",
 
   components: {
     FadeIn,
-    Button
+    Button,
+    Picture
   },
 
   props: {
@@ -96,17 +103,12 @@ export default {
       margin-top: 25px;
     }
   }
-
-  img {
-    border-radius: 20px;
-    width: 37%;
-  }
 }
 
 @include for-tablet-landscape {
   .project {
-    img {
-      width: 45%;
+    .picture {
+      width: 80%;
     }
   }
 }
@@ -115,7 +117,7 @@ export default {
   .project {
     flex-wrap: wrap;
 
-    img {
+    .picture {
       width: 380px;
       margin-bottom: 20px;
     }
@@ -136,13 +138,27 @@ export default {
 
 @include for-phone-small {
   .project {
-    img {
+    .picture {
       width: 85%;
       max-width: 350px;
     }
 
     .projText {
       max-width: initial;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+@import "../styles/screenSizes.scss";
+
+.project {
+  .picture {
+    width: 65%;
+
+    img {
+      border-radius: 20px;
     }
   }
 }

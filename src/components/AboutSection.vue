@@ -15,10 +15,11 @@
           <br />
           <br />I am always interested in opportunities to expand my experience!
         </p>
-        <img
+        <Picture
           id="myPhoto"
-          src="../assets/img/me.png"
-          alt="Handsome photo of me"
+          :src="'img/me'"
+          :ext="'png'"
+          :alt="'Handsome photo of me'"
         />
       </div>
     </transition>
@@ -27,11 +28,13 @@
 
 <script>
 import Section from "./Section";
+import Picture from "./Picture";
 
 export default {
   name: "AboutSection",
   components: {
-    Section
+    Section,
+    Picture
   }
 };
 </script>
@@ -57,12 +60,6 @@ export default {
     font-size: 1.2em;
     text-align: left;
   }
-
-  #myPhoto {
-    width: calc(9em + 15%);
-    border-radius: 100%;
-    object-fit: contain;
-  }
 }
 
 @include for-tablet-portrait {
@@ -78,6 +75,17 @@ export default {
     #myPhoto {
       margin-bottom: 30px;
     }
+  }
+}
+</style>
+
+<style lang="scss">
+#myPhoto {
+  width: calc(9em + 15%);
+
+  img {
+    border-radius: 100%;
+    object-fit: contain;
   }
 }
 </style>

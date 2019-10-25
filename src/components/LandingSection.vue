@@ -60,11 +60,13 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/screenSizes.scss";
+@import "../styles/webpImg.scss";
 
 .container {
+  @include background-image-webp("/img/background/background-full", "jpg");
+
   position: relative;
   padding: 0;
-  background-image: url("../assets/img/background/background-full.jpg");
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
@@ -204,31 +206,31 @@ export default {
 
 @media (max-width: 799px) {
   .container {
-    background-image: url("../assets/img/background/background-mobile.jpg");
+    @include background-image-webp("/img/background/background-mobile", "jpg");
   }
 }
 
 @media (min-width: 800px) {
   .container {
-    background-image: url("../assets/img/background/background-1000.jpg");
+    @include background-image-webp("/img/background/background-1000", "jpg");
   }
 }
 
 @media (min-width: 1100px) {
   .container {
-    background-image: url("../assets/img/background/background-1400.jpg");
+    @include background-image-webp("/img/background/background-1400", "jpg");
   }
 }
 
 @media (min-width: 1500px) {
   .container {
-    background-image: url("../assets/img/background/background-1920.jpg");
+    @include background-image-webp("/img/background/background-1920", "jpg");
   }
 }
 
 @include for-desktop-hd {
   .container {
-    background-image: url("../assets/img/background/background-full.jpg");
+    @include background-image-webp("/img/background/background-full", "jpg");
   }
 }
 </style>

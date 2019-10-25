@@ -1,7 +1,7 @@
 [
   {
     "name": "Smart Bus App",
-    "img": "./img/projects/busuber.png",
+    "img": "./img/projects/busuber",
     "imgAlt": "Busuber app screenshot",
     "tags": [
       "Android",
@@ -16,7 +16,7 @@
   },
   {
     "name": "Choose Your Own Adventure",
-    "img": "./img/projects/CYOA.jpg",
+    "img": "./img/projects/CYOA",
     "imgAlt": "Choose Your Own adventure project",
     "tags": [
       "JS & JQuery",
