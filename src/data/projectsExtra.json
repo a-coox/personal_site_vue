@@ -18,6 +18,7 @@
     "name": "Choose Your Own Adventure",
     "img": "./img/projects/CYOA",
     "imgAlt": "Choose Your Own adventure project",
+    "imgExt": "jpg",
     "tags": [
       "JS & JQuery",
       "UX Design"

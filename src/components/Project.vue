@@ -5,7 +5,7 @@
         class="picture"
         :src="project.img"
         :alt="project.imgAlt"
-        :ext="'png'"
+        :ext="project.imgExt || 'png'"
       />
       <div class="projText">
         <h2>{{ project.name }}</h2>

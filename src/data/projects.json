@@ -1,7 +1,7 @@
 [
   {
     "name": "SpotiSearch",
-    "img": "./img/projects/spotisearch",
+    "img": "img/projects/spotisearch",
     "imgAlt": "Spotisearch",
     "tags": [
       "Serverless",
@@ -16,8 +16,9 @@
   },
   {
     "name": "RemindMe IOT Assistant",
-    "img": "./img/projects/cube",
+    "img": "img/projects/cube",
     "imgAlt": "Glowing cube with button",
+    "imgExt": "jpg",
     "tags": [
       "AWS Lambda",
       "Embedded C",
@@ -31,7 +32,7 @@
   },
   {
     "name": "ColoChat Chatbot",
-    "img": "./img/projects/colo",
+    "img": "img/projects/colo",
     "imgAlt": "ColoChat website",
     "tags": [
       "Natural Language Processing",
@@ -46,7 +47,7 @@
   },
   {
     "name": "UQ GIT EdX Course",
-    "img": "./img/projects/edx",
+    "img": "img/projects/edxcourse",
     "imgAlt": "edX Course website",
     "tags": [
       "Version Control",
