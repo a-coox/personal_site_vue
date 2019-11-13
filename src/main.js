@@ -4,10 +4,16 @@ import VueAnalytics from "vue-analytics";
 
 Vue.config.productionTip = false;
 
-Vue.use(VueAnalytics, {
-  id: "UA-49867195-2"
-});
-
 new Vue({
   render: h => h(App)
 }).$mount("#app");
+
+Vue.use(VueAnalytics, {
+  id: "UA-49867195-2" //,
+  // debug: {
+  //   enabled: process.env.NODE_ENV !== "production"
+  // },
+  // autoTracking: {
+  //   exception: true
+  // }
+});
