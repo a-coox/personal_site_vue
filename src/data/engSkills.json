@@ -2,21 +2,24 @@
   "description": "I'm a stickler for effiency, so I take any opportunity to dive into some low-level C programming. I've done some internships writing C, and teach it at UQ.",
   "skills": [
     {
-      "name": "C (Windows and Linux)",
-      "level": 5
+      "name": "C (Embedded, Windows, Linux)",
+      "level": 5,
+      "description": "I've worked on Windows vulnerability exploits in C, and wrote code for STM32 and Atmel devices in projects. I've taught C courses for 2 years."
     },
     {
-      "name": "Embedded Systems (STM32, Atmel)",
-      "level": 3
-    },
-    {
-      "name": "Linux & Bash",
-      "level": 6,
+      "name": "Electronics",
+      "level": 2,
       "description": ""
     },
     {
-      "name": "IOT With AWS & Particle.io",
-      "level": 3
+      "name": "Python",
+      "level": 4,
+      "description": ""
+    },
+    {
+      "name": "Java",
+      "level": 3,
+      "description": ""
     }
   ]
 }

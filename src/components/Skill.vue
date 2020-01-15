@@ -9,12 +9,19 @@
         :class="{ glow: animateCount > i }"
       ></div>
     </div>
+    <Tooltip v-if="skill.description" :text="skill.description" />
   </div>
 </template>
 
 <script>
+import Tooltip from "@/components/Tooltip.vue";
+
 export default {
   name: "Skill",
+
+  components: {
+    Tooltip
+  },
 
   props: {
     skill: {
