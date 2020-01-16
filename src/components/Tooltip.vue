@@ -28,16 +28,18 @@ export default {
 
   methods: {
     mouseover() {
-      const elem = this.$refs.tooltipText;
-      const bbox = elem.getBoundingClientRect();
+      this.$nextTick(() => {
+        const elem = this.$refs.tooltipText;
+        const bbox = elem.getBoundingClientRect();
 
-      if (bbox.left < this.minOffset) {
-        const leftOffset = this.minOffset - bbox.left;
-        elem.style.marginLeft = `${leftOffset}px`;
-      } else if (bbox.right > window.innerWidth - this.minOffset) {
-        const rightOffset = bbox.right - window.innerWidth + this.minOffset;
-        elem.style.marginLeft = `${-rightOffset}px`;
-      }
+        if (bbox.left < this.minOffset) {
+          const leftOffset = this.minOffset - bbox.left;
+          elem.style.marginLeft = `${leftOffset}px`;
+        } else if (bbox.right > window.innerWidth - this.minOffset) {
+          const rightOffset = bbox.right - window.innerWidth + this.minOffset;
+          elem.style.marginLeft = `${-rightOffset}px`;
+        }
+      });
     }
   }
 };
@@ -71,8 +73,8 @@ export default {
 
   &:hover {
     .tooltipText {
-      visibility: visible;
       opacity: 100%;
+      visibility: visible;
       transform: translateY(48%) translateX(17px);
     }
   }
