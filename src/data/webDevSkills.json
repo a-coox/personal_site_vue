@@ -7,16 +7,15 @@
       "description": "I have used JavaScript for 2 internships, and taught web design at UQ. I also have experience writing custom jQuery libraries & plug-ins."
     },
     {
-      "name": "Cloud Services (AWS & Firebase)",
-      "level": 3,
-      "description": "I've used Firebase to create a cloud-based chatbot, AWS to make an Alexa-enabled IOT device for dementia research."
-    },
-    {
       "name": "Python",
       "level": 4,
       "description": "I've used Python to prototype embedded algorithms at Infosys, and across courses at UQ."
     },
-
+    {
+      "name": "Cloud Services (AWS & Firebase)",
+      "level": 3,
+      "description": "I've used Firebase to create a cloud-based chatbot, AWS to make an Alexa-enabled IOT device for dementia research."
+    },
     {
       "name": "Java",
       "level": 3,

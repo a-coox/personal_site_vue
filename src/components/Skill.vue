@@ -74,9 +74,9 @@ export default {
   }
 
   span {
-    font-size: 1.05em;
+    font-size: 17px;
     text-align: left;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .barGraph {

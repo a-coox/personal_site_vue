@@ -77,6 +77,10 @@ export default {
       visibility: visible;
       transform: translateY(48%) translateX(17px);
     }
+
+    .infoIcon {
+      color: rgb(65, 65, 65);
+    }
   }
 
   .infoIcon {

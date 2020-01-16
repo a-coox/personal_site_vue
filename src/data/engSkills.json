@@ -7,11 +7,6 @@
       "description": "I've used C to create security exploits for work and wrote code for STM32 and Atmel devices in projects. I've taught C courses for 2 years."
     },
     {
-      "name": "Security",
-      "level": 2,
-      "description": "I've written Windows vulnerability exploits in C and completed multiple security courses."
-    },
-    {
       "name": "Embedded Systems",
       "level": 4,
       "description": "I teach C on Atmel microcontrollers and have worked with STM32 in university projects, and I co-created an embedded cooperative pathfinding algorithm."
@@ -20,6 +15,11 @@
       "name": "Electrical/Electronics",
       "level": 3,
       "description": "I'm studying as a qualified electrical engineer, which includes analysis and applied design of circuit theory."
+    },
+    {
+      "name": "Security",
+      "level": 2,
+      "description": "I've written Windows vulnerability exploits in C and completed multiple security courses."
     }
   ]
 }
