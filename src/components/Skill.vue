@@ -1,6 +1,10 @@
 <template>
   <div class="skill">
-    <p>{{ skill.name }}</p>
+    <div class="skillName">
+      <span>{{ skill.name }}</span>
+      <Tooltip v-if="skill.description" :text="skill.description" />
+    </div>
+
     <div class="barGraph">
       <div
         v-for="(level, i) in skill.level"
@@ -9,7 +13,6 @@
         :class="{ glow: animateCount > i }"
       ></div>
     </div>
-    <Tooltip v-if="skill.description" :text="skill.description" />
   </div>
 </template>
 
@@ -63,8 +66,14 @@ export default {
 <style lang="scss" scoped>
 .skill {
   margin-bottom: 20px;
+  text-align: left;
 
-  p {
+  .skillName {
+    display: flex;
+    align-items: center;
+  }
+
+  span {
     font-size: 1.05em;
     text-align: left;
     font-weight: 300;
