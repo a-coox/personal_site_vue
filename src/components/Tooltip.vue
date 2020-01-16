@@ -73,7 +73,7 @@ export default {
 
   &:hover {
     .tooltipText {
-      opacity: 100%;
+      opacity: 1;
       visibility: visible;
       transform: translateY(48%) translateX(17px);
     }
