@@ -4,7 +4,7 @@
       <div class="skillContainer">
         <SkillBox
           class="webSkills"
-          :title="'Web Developer'"
+          :title="'Software Developer'"
           :skills="webDevSkills.skills"
           :description="webDevSkills.description"
           :animate="animate"

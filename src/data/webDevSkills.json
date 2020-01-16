@@ -1,25 +1,26 @@
 {
-  "description": "I like to design clean, aesthetic UI's and turn them into reality. I've worked extensively with HTML/CSS, JavaScript and frameworks during internships and personal projects.",
+  "description": "I've worked extensively with front-end web development during internships and personal projects. Modern OOP languages are my go-to for getting things done.",
   "skills": [
     {
-      "name": "Javascript & jQuery",
+      "name": "Web Development (Vanilla, JQuery, Vue.js)",
       "level": 5,
-      "description": "Experience with ES2015 to ES2017 features, e.g. async/await, promises. Understanding of event loop/job queue/stack, Google V8 engine optimisation. Experience writing custom jQuery libraries & plug-ins."
-    },
-    {
-      "name": "Vue.js",
-      "level": 4,
-      "description": "Applied extensively at GBST to create complex front-end applications, as well as personal projects."
+      "description": "I have used JavaScript for 2 internships, and taught web design at UQ. I also have experience writing custom jQuery libraries & plug-ins."
     },
     {
       "name": "Cloud Services (AWS & Firebase)",
       "level": 3,
-      "description": "I have understanding of using NodeJS with a JSON database (MongoDB), and communicating with front-end web-apps with ExpressJS and HTTP requests."
+      "description": "I've used Firebase to create a cloud-based chatbot, AWS to make an Alexa-enabled IOT device for dementia research."
     },
     {
-      "name": "Node.js",
-      "level": 2,
-      "description": ""
+      "name": "Python",
+      "level": 4,
+      "description": "I've used Python to prototype embedded algorithms at Infosys, and across courses at UQ."
+    },
+
+    {
+      "name": "Java",
+      "level": 3,
+      "description": "I've used Java across 3 courses including a partial compiler implementation. I have a strong understanding of OOP design principles."
     }
   ]
 }

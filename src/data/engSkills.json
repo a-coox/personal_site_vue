@@ -1,22 +1,25 @@
 {
-  "description": "I'm a stickler for effiency, so I take any opportunity to dive into some low-level C programming. I've done some internships writing C, and teach it at UQ.",
+  "description": "Writing clean, efficient code is something I really enjoy. I teach embedded systems and C at UQ, and have used those skills across internships. I also have a background in electrical.",
   "skills": [
     {
-      "name": "C (Windows and Linux)",
-      "level": 5
+      "name": "C (Embedded, Windows, Linux)",
+      "level": 5,
+      "description": "I've used C to create security exploits for work and wrote code for STM32 and Atmel devices in projects. I've taught C courses for 2 years."
     },
     {
-      "name": "Embedded Systems (STM32, Atmel)",
-      "level": 3
+      "name": "Security",
+      "level": 2,
+      "description": "I've written Windows vulnerability exploits in C and completed multiple security courses."
     },
     {
-      "name": "Linux & Bash",
-      "level": 6,
-      "description": ""
+      "name": "Embedded Systems",
+      "level": 4,
+      "description": "I teach C on Atmel microcontrollers and have worked with STM32 in university projects, and I co-created an embedded cooperative pathfinding algorithm."
     },
     {
-      "name": "IOT With AWS & Particle.io",
-      "level": 3
+      "name": "Electrical/Electronics",
+      "level": 3,
+      "description": "I'm studying as a qualified electrical engineer, which includes analysis and applied design of circuit theory."
     }
   ]
 }
