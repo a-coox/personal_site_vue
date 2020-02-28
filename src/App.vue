@@ -13,7 +13,7 @@
     />
     <AboutSection ref="about" />
     <SkillsSection ref="skills" />
-    <ProjectsSection ref="project" />
+    <ProjectsSection ref="projects" />
     <EducationSection ref="education" />
     <ContactSection ref="contact" />
   </div>
@@ -48,7 +48,7 @@ export default {
     return {
       isScrolled: false,
       active: 0,
-      pages: ["home", "about", "skills", "project", "education", "contact"]
+      pages: ["home", "about", "skills", "projects", "education", "contact"]
     };
   },
 

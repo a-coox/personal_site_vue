@@ -1,5 +1,5 @@
 <template>
-  <Section id="project" :header="'Projects'">
+  <Section id="projects" :header="'Projects'">
     <div class="projects">
       <Project
         v-for="project in projects"
