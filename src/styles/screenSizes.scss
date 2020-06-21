@@ -35,7 +35,7 @@
 }
 
 @mixin for-desktop-hd {
-  @media (min-resolution: 190dpi) and (min-width: 1800px),
+  @media (min-resolution: 120dpi) and (min-width: 1500px),
     (min-width: 2800px) {
     @content;
   }

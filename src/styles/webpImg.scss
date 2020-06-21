@@ -1,7 +1,0 @@
-@mixin background-image-webp($url, $ext) {
-  background-image: url("#{$url}.#{$ext}");
-
-  @supports (background-image: url("#{$url}.webp")) {
-    background-image: url("#{$url}.webp");
-  }
-}

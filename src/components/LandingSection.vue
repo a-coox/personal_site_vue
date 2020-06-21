@@ -6,6 +6,7 @@
     @mousemove.native="mousemove"
   >
     <ParticleCanvas ref="canvas" class="canvas" :is-active="isActive" />
+
     <Intersect :threshold="[0.8]" @enter="onEnter" @leave="onLeave">
       <div class="content">
         <div class="title">
@@ -57,14 +58,10 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../styles/screenSizes.scss";
-@import "../styles/webpImg.scss";
 
 .container {
-  @include background-image-webp("/img/background/background-full", "jpg");
-
   position: relative;
   padding: 0;
   background-size: cover;
@@ -203,34 +200,58 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss">
+@import "../styles/screenSizes.scss";
 
 @media (max-width: 799px) {
-  .container {
-    @include background-image-webp("/img/background/background-mobile", "jpg");
+  .webp .container {
+    background-image: url("/img/background/background-mobile.webp");
+  }
+
+  .no-webp .container {
+    background-image: url("/img/background/background-mobile.jpg");
   }
 }
 
 @media (min-width: 800px) {
-  .container {
-    @include background-image-webp("/img/background/background-1000", "jpg");
+  .webp .container {
+    background-image: url("/img/background/background-1000.webp");
+  }
+
+  .no-webp .container {
+    background-image: url("/img/background/background-1000.jpg");
   }
 }
 
 @media (min-width: 1100px) {
-  .container {
-    @include background-image-webp("/img/background/background-1400", "jpg");
+  .webp .container {
+    background-image: url("/img/background/background-1400.webp");
+  }
+
+  .no-webp .container {
+    background-image: url("/img/background/background-1400.jpg");
   }
 }
 
 @media (min-width: 1500px) {
-  .container {
-    @include background-image-webp("/img/background/background-1920", "jpg");
+  .webp .container {
+    background-image: url("/img/background/background-1920.webp");
+  }
+
+  .no-webp .container {
+    background-image: url("/img/background/background-1920.jpg");
   }
 }
 
 @include for-desktop-hd {
-  .container {
-    @include background-image-webp("/img/background/background-full", "jpg");
+  .webp .container {
+    background-image: url("/img/background/background-full.webp");
+  }
+
+  .no-webp .container {
+    background-image: url("/img/background/background-full.jpg");
   }
 }
 </style>
