@@ -4,23 +4,6 @@
   </a>
 </template>
 
-<script>
-export default {
-  name: "Button",
-
-  props: {
-    text: {
-      type: String,
-      default: ""
-    },
-    symbol: {
-      type: String,
-      default: ""
-    }
-  }
-};
-</script>
-
 <style lang="scss" scoped>
 $mainColour: rgb(60, 82, 139);
 $invertColour: white;

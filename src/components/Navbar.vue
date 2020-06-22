@@ -18,7 +18,10 @@
       <a id="navSkills" href="#skills" :class="{ active: active === 'skills' }"
         >Skills</a
       >
-      <a ref="project" href="#project" :class="{ active: active === 'project' }"
+      <a
+        ref="projects"
+        href="#projects"
+        :class="{ active: active === 'projects' }"
         >Projects</a
       >
       <a

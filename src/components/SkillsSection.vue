@@ -29,7 +29,7 @@ import SkillBox from "./SkillBox";
 import webDevSkills from "../data/webDevSkills.json";
 import engSkills from "../data/engSkills.json";
 import cpuLogo from "../assets/icons/cpuLogo.svg";
-import webLogo from "../assets/icons/webLogo2.svg";
+import webLogo from "../assets/icons/webLogo.svg";
 
 export default {
   name: "SkillsSection",

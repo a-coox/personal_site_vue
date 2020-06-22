@@ -16,7 +16,14 @@
             resume.
           </h2>
         </div>
-        <a id="enterBtn" href="#about" @click="onClick($event)">Explore Site</a>
+        <div class="buttons">
+          <a id="enterBtn" href="#about" @click="onClick($event)"
+            >Explore Site</a
+          >
+          <a id="resumeBtn" href="/files/resume.pdf" target="_blank">
+            <DownloadIcon /> Resume</a
+          >
+        </div>
       </div>
     </Intersect>
     <div id="overlay"></div>
@@ -29,6 +36,7 @@ import Section from "./Section";
 import Typer from "./Typer";
 import ParticleCanvas from "./ParticleCanvas";
 import { smoothScroll } from "../services/SmoothScroll";
+import DownloadIcon from "../assets/icons/download.svg";
 
 export default {
   name: "LandingSection",
@@ -36,7 +44,8 @@ export default {
     Section,
     Typer,
     ParticleCanvas,
-    Intersect
+    Intersect,
+    DownloadIcon
   },
   props: {
     isActive: {
@@ -90,27 +99,29 @@ export default {
       width: 100%;
     }
 
-    .title,
-    #enterBtn {
+    .title {
       display: block;
       text-align: center;
       z-index: 4;
       color: white;
     }
 
-    #enterBtn {
+    .buttons a {
+      display: inline-block;
       position: relative;
+      text-align: center;
+      z-index: 4;
+      color: white;
       text-transform: uppercase;
       font-family: "Nunito Sans", Georgia, sans-serif;
       transition: 0.35s ease-in-out;
-      line-height: 50px;
+      line-height: 45px;
       text-decoration: none;
       border: 2px solid white;
-      outline: 2px solid white;
-      outline-offset: -8px;
-      width: 160px;
+      width: 150px;
       overflow: hidden;
       padding: 8px 2px;
+      margin: 0 25px;
 
       &::before {
         transition: 0.35s ease-in-out;
@@ -138,6 +149,15 @@ export default {
       }
     }
 
+    #resumeBtn svg {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      margin-right: 5px;
+      top: 4px;
+    }
+
     #description {
       font-family: "Nunito Sans", Georgia, sans-serif;
       font-weight: 200;
@@ -160,10 +180,39 @@ export default {
     right: 0;
     background: linear-gradient(
       135deg,
-      rgba(7, 18, 32, 0.7),
-      rgba(15, 10, 34, 0.7)
+      rgba(7, 18, 32, 0.75),
+      rgba(15, 10, 34, 0.75)
     );
     z-index: 2;
+  }
+}
+
+@include for-tablet-landscape {
+  .container {
+    .content {
+      #description {
+        width: 50%;
+      }
+    }
+
+    .buttons a {
+      margin: 15px;
+    }
+  }
+}
+
+@include for-tablet-portrait {
+  .container {
+    .content {
+      #description {
+        width: 65%;
+        font-size: 22px;
+      }
+
+      .buttons a {
+        margin: 10px;
+      }
+    }
   }
 }
 
@@ -176,26 +225,28 @@ export default {
         margin-top: 0;
         margin-bottom: 45px;
       }
-    }
-  }
-}
 
-@include for-tablet-landscape {
-  .container {
-    .content {
-      #description {
-        width: 50%;
+      .buttons a {
+        width: 140px;
+        line-height: 40px;
       }
     }
   }
 }
 
-@include for-tablet-portrait {
+@include for-phone-small {
   .container {
     .content {
-      #description {
-        width: 65%;
-        font-size: 22px;
+      .buttons a {
+        width: 125px;
+        line-height: 38px;
+        font-size: 14px;
+      }
+
+      #resumeBtn svg {
+        top: 2px;
+        width: 17px;
+        height: 17px;
       }
     }
   }
