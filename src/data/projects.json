@@ -11,7 +11,7 @@
     "description": "I individually designed, created, and published a website which provides powerful filtering and playlist automation functionality for Spotify users. Made using Vue.JS, the public Spotify API, and OAuth 2.0 authentication. It was designed as a demonstration of my front-end abilities.",
     "link": {
       "text": "Visit Site",
-      "href": "https://spotisearch.netlify.com/"
+      "href": "https://spotisearch.netlify.app/"
     }
   },
   {
@@ -42,7 +42,7 @@
     "description": "Colochat is an interactive web-app which inspires an interest in Aboriginal languages. Children are able to talk to Colo and ask for translations, quizzes, etc. I used Google's DialogFlow API for advanced natural language processing as well as Firebase Functions for the server. The front-end was done in Vue.",
     "link": {
       "text": "Visit Site",
-      "href": "https://colochat.netlify.com/"
+      "href": "https://colochat.netlify.app/"
     }
   },
   {
