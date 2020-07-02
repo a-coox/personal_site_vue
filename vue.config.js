@@ -1,12 +1,8 @@
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-// const ImageminPngquant = require('imagemin-pngquant');
-// const ImageminWebp = require('imagemin-webp');
 const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
 
-// (process.env.NODE_ENV == 'production') ? [] :
 module.exports = {
   configureWebpack: {
     devtool: "source-map",
@@ -15,20 +11,23 @@ module.exports = {
       new StylelintPlugin({
         files: ["**/*.vue"]
       }),
-      new CopyPlugin([{
-        from: 'public/img'
-      }]),
+      new ImageminWebpWebpackPlugin({ quality: 95 }),
       new ImageminPlugin({
         disable: process.env.NODE_ENV !== 'production',
         test: /\.(jpg|png|gif|svg)$/i,
+        // Enable with or without settings
         pngquant: {
-          quality: '90-100'
+          quality: '90-95'
         },
+        svgo: {},
+        gifsicle: {},
         plugins: [
-          ImageminMozjpeg({quality: 90, progressive: true})
-        ]
-      }),
-      new ImageminWebpWebpackPlugin({ quality: 100 })
+          ImageminMozjpeg({quality: 95, progressive: true})
+        ],
+        // Disable with null
+        optipng: null,
+        jpegtran: null,
+      })
     ]
   },
   chainWebpack(config) {

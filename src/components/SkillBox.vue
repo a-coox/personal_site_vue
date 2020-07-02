@@ -88,7 +88,7 @@ export default {
 
   .description {
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 17.5px;
   }
 
   h4 {
