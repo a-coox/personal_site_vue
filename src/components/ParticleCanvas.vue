@@ -23,7 +23,8 @@ export default {
       hasStarted: false,
       canvas: {
         width: 500,
-        height: 500
+        height: 500,
+        minWidthToRun: 495
       }
     };
   },
@@ -42,7 +43,9 @@ export default {
       }
     },
     isActive(newVal) {
-      this.running = newVal;
+      if (!this.isDeviceMobile()) {
+        this.running = newVal;
+      }
     }
   },
 
@@ -59,23 +62,49 @@ export default {
 
   methods: {
     mousemove(evt) {
+      if (!this.isDeviceMobile()) {
+        this.ensureAnimationIsStarted();
+        this.animation.onMouseMove(evt);
+      }
+    },
+
+    isDeviceMobile() {
+      const canvasWidth = this.$refs.canvas.clientWidth;
+      return canvasWidth <= this.canvas.minWidthToRun;
+    },
+
+    ensureAnimationIsStarted() {
       if (!this.hasStarted) {
         this.running = true;
       }
-      this.animation.onMouseMove(evt);
     },
+
     resize() {
-      if (this.$refs.canvas) {
-        const { clientWidth, clientHeight } = this.$refs.canvas;
-        if (
-          this.canvas.width != clientWidth ||
-          this.canvas.height != clientHeight
-        ) {
-          this.canvas.width = clientWidth;
-          this.canvas.height = clientHeight;
-          this.animation.updateCanvas(clientWidth, clientHeight);
-        }
+      if (this.isDeviceMobile()) {
+        this.disableAnimation();
+      } else if (this.$refs.canvas && !this.isCanvasSizeCorrect()) {
+        this.setCorrectCanvasSize();
+        this.running = true;
       }
+    },
+
+    disableAnimation() {
+      this.running = false;
+      this.animation.clearCanvas();
+    },
+
+    isCanvasSizeCorrect() {
+      const { clientWidth, clientHeight } = this.$refs.canvas;
+      return (
+        this.canvas.width === clientWidth && this.canvas.height === clientHeight
+      );
+    },
+
+    setCorrectCanvasSize() {
+      const { clientWidth, clientHeight } = this.$refs.canvas;
+      this.canvas.width = clientWidth;
+      this.canvas.height = clientHeight;
+      this.animation.updateCanvas(clientWidth, clientHeight);
     }
   }
 };

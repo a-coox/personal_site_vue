@@ -239,12 +239,8 @@ export default class ParticleAnimation {
   }
 
   animateFrame(delta) {
-    this.canvas.ctx.clearRect(
-      0,
-      0,
-      this.canvas.elem.width,
-      this.canvas.elem.height
-    );
+    this.clearCanvas();
+
     this.forEachParticle((particle, i, j) => {
       this.updateParticleOpacity(particle, i, j);
       if (particle.animateFrame(delta)) {
@@ -253,6 +249,15 @@ export default class ParticleAnimation {
       particle.draw();
     });
     this.anim.req = requestAnimationFrame(this.animateFrame.bind(this));
+  }
+
+  clearCanvas() {
+    this.canvas.ctx.clearRect(
+      0,
+      0,
+      this.canvas.elem.width,
+      this.canvas.elem.height
+    );
   }
 
   forEachParticle(func) {
