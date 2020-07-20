@@ -87,6 +87,8 @@ export default {
 @import "../styles/screenSizes.scss";
 
 .navbar {
+  touch-action: none;
+
   .menuOverlay {
     z-index: 90;
     position: fixed;
@@ -165,7 +167,10 @@ export default {
       }
 
       .logo {
-        display: none;
+        fill: #3a72b8;
+        position: initial;
+        margin-top: 20px;
+        margin-bottom: 30px;
       }
 
       &.slideIn {
