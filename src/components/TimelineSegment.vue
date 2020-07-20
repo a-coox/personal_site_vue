@@ -87,6 +87,12 @@ export default {
       border-bottom: $size solid transparent;
       border-right: $size solid white;
     }
+
+    .text {
+      .description {
+        font-size: 17px;
+      }
+    }
   }
 }
 </style>

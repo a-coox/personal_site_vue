@@ -75,6 +75,14 @@ export default {
     }
   }
 }
+
+@include for-phone {
+  #aboutContainer {
+    p {
+      font-size: 17px;
+    }
+  }
+}
 </style>
 
 <style lang="scss">

@@ -136,6 +136,16 @@ export default {
   }
 }
 
+@include for-phone {
+  .project {
+    .projText {
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
 @include for-phone-small {
   .project {
     .picture {

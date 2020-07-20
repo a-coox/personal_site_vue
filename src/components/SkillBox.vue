@@ -169,4 +169,16 @@ export default {
     min-width: initial;
   }
 }
+
+@include for-phone {
+  .skillBox {
+    width: 96%;
+    margin: 2%;
+    padding: 20px;
+
+    .description {
+      font-size: 16px;
+    }
+  }
+}
 </style>
