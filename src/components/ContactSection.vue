@@ -44,7 +44,7 @@ export default {
         {
           text: "Email",
           logo: EmailLogo,
-          link: "mailto:aaron.coox@outlook.com"
+          link: "mailto:aaron.coox+jobs@outlook.com"
         },
         {
           text: "GitHub",
