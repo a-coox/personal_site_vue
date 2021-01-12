@@ -5,6 +5,13 @@
         Please, don't hestitate to contact me through any of the options below.
         I'd love to hear from you!
       </p>
+      <div class="emailContainer">
+        <EmailLogo class="logo" />
+        <h2 class="emailText">
+          aaron.<span class="fake">fake</span>
+          <span>coox</span>@<span>outlook</span>.com
+        </h2>
+      </div>
       <div id="contactLinks">
         <ContactLink
           v-for="contact in contacts"
@@ -30,7 +37,8 @@ export default {
 
   components: {
     ContactLink,
-    Section
+    Section,
+    EmailLogo
   },
 
   data() {
@@ -39,22 +47,17 @@ export default {
         {
           text: "Linkedin",
           logo: LinkedinLogo,
-          link: "https://www.linkedin.com/in/aaron-coox/"
-        },
-        {
-          text: "Email",
-          logo: EmailLogo,
-          link: "mailto:aaron.coox+jobs@outlook.com"
+          link: "aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2Fhcm9uLWNvb3gv"
         },
         {
           text: "GitHub",
           logo: GithubLogo,
-          link: "https://github.com/Belgiumese/"
+          link: "aHR0cHM6Ly9naXRodWIuY29tL2EtY29veC8="
         },
         {
           text: "Medium",
           logo: MediumLogo,
-          link: "https://medium.com/@thebelgiumesekid"
+          link: "aHR0cHM6Ly9tZWRpdW0uY29tL0B0aGViZWxnaXVtZXNla2lk"
         }
       ]
     };
@@ -75,6 +78,29 @@ export default {
       font-size: 24px;
     }
 
+    .emailContainer {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+
+      .logo {
+        color: #7986f4;
+        height: 50px;
+      }
+
+      .emailText {
+        padding-left: 10px;
+
+        .fake {
+          visibility: hidden;
+          width: 0;
+          display: inline-block;
+        }
+      }
+    }
+
     #contactLinks {
       margin-top: 20px;
     }
@@ -82,24 +108,15 @@ export default {
 }
 
 @include for-tablet-portrait {
-  #contact {
-    .contactInfo {
-      p {
-        width: 80%;
-        font-size: 22px;
-      }
-    }
+  .emailContainer {
+    font-size: 15px;
   }
 }
 
-@include for-phone {
-  #contact {
-    .contactInfo {
-      p {
-        width: 80%;
-        font-size: 20px;
-      }
-    }
+@include for-phone-small {
+  .emailContainer {
+    flex-direction: column;
+    font-size: 14px;
   }
 }
 </style>

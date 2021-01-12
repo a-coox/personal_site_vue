@@ -1,6 +1,6 @@
 <template>
   <div class="contactLink">
-    <a :href="link" target="_blank">
+    <a :href="decryptedLink" target="_blank">
       <component :is="logo" />
     </a>
     <p class="iconSub">{{ text }}</p>
@@ -24,6 +24,12 @@ export default {
       type: Object,
       default: null
     }
+  },
+
+  computed: {
+    decryptedLink() {
+      return atob(this.link);
+    }
   }
 };
 </script>
@@ -33,7 +39,7 @@ export default {
 
 .contactLink {
   display: inline-block;
-  padding: 5%;
+  padding: 2% 5% 5% 5%;
 
   p {
     margin: 0 auto;

@@ -56,7 +56,10 @@ export default {
 
     this.$nextTick(() => {
       this.animation = new ParticleAnimation(canvas);
-      window.addEventListener("resize", debounce(evt => this.resize(evt), 50));
+      window.addEventListener(
+        "resize",
+        debounce(evt => this.resize(evt), 50)
+      );
     });
   },
 
