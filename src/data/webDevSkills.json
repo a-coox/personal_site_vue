@@ -2,7 +2,7 @@
   "description": "I've worked extensively with front-end web development during internships and personal projects. Modern OOP languages are my go-to for getting things done.",
   "skills": [
     {
-      "name": "Web Development (Vanilla, JQuery, Vue.js)",
+      "name": "Web Development (Vanilla, Vue.js)",
       "level": 5,
       "description": "I have used JavaScript for 2 internships, and taught web design at UQ. I also have experience writing custom jQuery libraries & plug-ins."
     },
@@ -12,12 +12,12 @@
       "description": "I've used Python to prototype embedded algorithms at Infosys, and across courses at UQ."
     },
     {
-      "name": "Cloud Services (AWS & Firebase)",
-      "level": 3,
+      "name": "Cloud Services (AWS, Firebase)",
+      "level": 4,
       "description": "I've used Firebase to create a cloud-based chatbot, AWS to make an Alexa-enabled IOT device for dementia research."
     },
     {
-      "name": "Java",
+      "name": "Java & Kotlin",
       "level": 3,
       "description": "I've used Java across 3 courses including a partial compiler implementation. I have a strong understanding of OOP design principles."
     }

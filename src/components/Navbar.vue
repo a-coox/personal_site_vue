@@ -15,8 +15,11 @@
       <a id="navAbout" href="#about" :class="{ active: active === 'about' }"
         >About Me</a
       >
-      <a id="navSkills" href="#skills" :class="{ active: active === 'skills' }"
-        >Skills</a
+      <a
+        ref="education"
+        href="#education"
+        :class="{ active: active === 'education' }"
+        >Experience</a
       >
       <a
         ref="projects"
@@ -24,11 +27,8 @@
         :class="{ active: active === 'projects' }"
         >Projects</a
       >
-      <a
-        ref="education"
-        href="#education"
-        :class="{ active: active === 'education' }"
-        >Experience</a
+      <a id="navSkills" href="#skills" :class="{ active: active === 'skills' }"
+        >Skills</a
       >
       <a ref="contact" href="#contact" :class="{ active: active === 'contact' }"
         >Contact</a

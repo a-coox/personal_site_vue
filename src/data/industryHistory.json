@@ -1,5 +1,10 @@
 [
   {
+    "date": "Nov 2020 - Feb 2021",
+    "title": "Software Engineer Intern @Atlassian, Sydney",
+    "description": "I worked as a cloud microservice engineer as part of Atlassian's PaaS. My focus was on implementing synthetic testing and alerts for serverless systems on AWS. I used AWS, Kotlin + Spring Boot, Node.js."
+  },
+  {
     "date": "Jun 2019 - Sep 2019",
     "title": "Software Engineer Intern @Infosys, India",
     "description": "I completed a Robotics intership in India with Infosys, a global IT company. I researched and implemented a co-operative pathfinding algorithm in low-cost robotics."
@@ -8,10 +13,5 @@
     "date": "Nov 2018 - Dec 2018",
     "title": "Cyber Security Intern @Cympire, Israel",
     "description": "I wrote a fully automated Windows Kerberos Vulnerability exploit in C. I also created an Azure infrastructure to execute this vulnerability on, able to be automatically deployed through PowerShell."
-  }, 
-  {
-    "date": "Apr 2018 - Feb 2019",
-    "title": "Front-end Developer @GBST, Brisbane",
-    "description": "I worked as a front-end developer with GBST on financial graphing using Vue.js and D3.js. I also briefly worked with React."
   }
 ]

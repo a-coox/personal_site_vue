@@ -1,5 +1,21 @@
 [
   {
+    "name": "VR Hand Rehabilitation",
+    "img": "img/projects/handvr",
+    "imgAlt": "Hand VR demo",
+    "tags": [
+      "VR",
+      "Hand Tracking",
+      "Unity",
+      "Shaders"
+    ],
+    "description": "As part of my bachelor's thesis, I developed a VR hand-tracking interaction system for use in upper-limb rehabilitation. The library contains configurable object manipulation using grasping, pinching, or gesturing with or without physics. Developed on the Oculus Quest 2 with Unity.",
+    "link": {
+      "text": "View Demo",
+      "href": "https://youtu.be/IkCqFwkAIN8"
+    }
+  },
+  {
     "name": "SpotiSearch",
     "img": "img/projects/spotisearch",
     "imgAlt": "Spotisearch",
@@ -12,22 +28,6 @@
     "link": {
       "text": "Visit Site",
       "href": "https://spotisearch.netlify.app/"
-    }
-  },
-  {
-    "name": "RemindMe IOT Assistant",
-    "img": "img/projects/cube",
-    "imgAlt": "Glowing cube with button",
-    "imgExt": "jpg",
-    "tags": [
-      "AWS Lambda",
-      "Embedded C",
-      "Alexa"
-    ],
-    "description": "I designed the RemindMe cube prototype to assist dementia patients with their daily routine by providing a compact cloud-enabled cube. The cube can be set to softly pulse and play music at certain times of day, or based on smart-home triggers (such as a positional sensor) to remind the patient of their goal. I implemented it with an IOT-enabled microcontroller and full Alexa integration through Amazon AWS.",
-    "link": {
-      "text": "Visit Article",
-      "href": "https://medium.com/@thebelgiumesekid/how-to-create-an-alexa-enabled-smart-home-with-particle-photon-part-1-d8c4da3702e9"
     }
   },
   {
@@ -44,15 +44,5 @@
       "text": "Visit Site",
       "href": "https://colochat.netlify.app/"
     }
-  },
-  {
-    "name": "UQ GIT EdX Course",
-    "img": "img/projects/edxcourse",
-    "imgAlt": "edX Course website",
-    "tags": [
-      "Version Control",
-      "GIT"
-    ],
-    "description": "I wrote a large section of UQ’s official GIT version control online course. This online course will be used to teach GIT to every engineering and IT student at UQ from next semester onwards. My task included writing explanations on command-line functionality & core concepts and creating tutorial videos."
   }
 ]

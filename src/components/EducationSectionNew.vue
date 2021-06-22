@@ -5,14 +5,14 @@
         <briefcaseLogo />
         <h3>Industry</h3>
         <div class="timelineContainer">
-          <Timeline :data="industryHistory" />
+          <Timeline :data="industryHistory" :max-shown="3" />
         </div>
       </div>
       <div class="segment academic">
         <gradHatLogo />
         <h3>Academic</h3>
         <div class="timelineContainer">
-          <Timeline :data="academicHistory" />
+          <Timeline :data="academicHistory" :max-shown="3" />
         </div>
       </div>
     </div>

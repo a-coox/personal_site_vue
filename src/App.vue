@@ -12,9 +12,9 @@
       @leave="onLeave"
     />
     <AboutSection ref="about" />
-    <SkillsSection ref="skills" />
-    <ProjectsSection ref="projects" />
     <EducationSection ref="education" />
+    <ProjectsSection ref="projects" />
+    <SkillsSection ref="skills" />
     <ContactSection ref="contact" />
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
     return {
       isScrolled: false,
       active: 0,
-      pages: ["home", "about", "skills", "projects", "education", "contact"]
+      pages: ["home", "about", "education", "projects", "skills", "contact"]
     };
   },
 
