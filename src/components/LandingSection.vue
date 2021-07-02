@@ -12,8 +12,7 @@
         <div class="title">
           <Typer :text="'Hi, I\'m Aaron Coox'" />
           <h2 id="description">
-            Computer & Electrical/Information Technology student. Welcome to my
-            resume.
+            Software engineer. Welcome to my resume.
           </h2>
         </div>
         <div class="buttons">

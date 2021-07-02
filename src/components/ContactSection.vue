@@ -8,8 +8,10 @@
       <div class="emailContainer">
         <EmailLogo class="logo" />
         <h2 class="emailText">
-          aaron.<span class="fake">fake</span>
-          <span>coox</span>@<span>outlook</span>.com
+          {{ email[0] }}<span>{{ email[2] }}</span
+          ><span class="fake">{{ email[1] }}</span
+          >{{ email[3] }}<span>{{ email[4] }}</span
+          >{{ email[5] }}
         </h2>
       </div>
       <div id="contactLinks">
@@ -41,8 +43,22 @@ export default {
     EmailLogo
   },
 
+  computed: {
+    email() {
+      return this.encodedEmail.map(atob);
+    }
+  },
+
   data() {
     return {
+      encodedEmail: [
+        "YWFyb24u",
+        "K2hvbmV5",
+        "Y29veA==",
+        "QA==",
+        "b3V0bG9vaw==",
+        "LmNvbQ=="
+      ],
       contacts: [
         {
           text: "Linkedin",

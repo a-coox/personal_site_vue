@@ -2,15 +2,14 @@
   <Section id="about" :header="'About Me'">
     <div id="aboutContainer">
       <p>
-        I'm an enthusiastic student interested in all things electronic, from
-        web app development to C micro-controller programming. I love reading to
-        complement my studies or unwind.
+        I'm an enthusiastic engineer interested in all things electronic, from
+        web development to embedded systems.
         <br />
         <br />Side projects and work knowledge are what give me a strong
         skillset to bring to the workforce. My internships and tutoring
         experience have given me a deeper understanding of programming and
-        teamwork. I live in Brisbane, Australia where I study engineering at the
-        University of Queensland.
+        teamwork. I studied engineering at the University of Queensland, and now
+        work in San Francisco, CA.
         <br />
         <br />I am always interested in opportunities to expand my experience!
       </p>
